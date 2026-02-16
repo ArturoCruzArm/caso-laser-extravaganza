@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso: Dano por Laser a Equipo Profesional - Salon Extravaganza</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --bg: #f5f5f5;
+            --card: #ffffff;
+            --text: #333;
+            --muted: #666;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        header p { color: #ccc; font-size: 0.95rem; }
+        .container { max-width: 960px; margin: 0 auto; padding: 1rem; }
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .alert-danger {
+            background: #f8d7da;
+            border-left-color: var(--accent);
+        }
+        .section {
+            background: var(--card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .section h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.65rem;
+            top: 0.4rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .timeline-item .date {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover { background: #f9f9f9; }
+        .evidencia-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        .evidencia-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        .evidencia-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+        .evidencia-card .caption {
+            padding: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+        }
+        .evidencia-card video {
+            width: 100%;
+            height: 250px;
+            background: #000;
+        }
+        .monto-highlight {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-align: center;
+            padding: 1rem;
+        }
+        .legal-box {
+            background: #e8f4fd;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-active { background: #d4edda; color: #155724; }
+        .status-escalated { background: #f8d7da; color: #721c24; }
+        .actas-section {
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            background: #fafafa;
+        }
+        .actas-section h3 { margin-bottom: 0.5rem; color: var(--primary); }
+        footer {
+            background: var(--primary);
+            color: #999;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.3rem; }
+            .evidencia-grid { grid-template-columns: 1fr; }
+            .container { padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Caso: Dano a Equipo Profesional por Laser</h1>
+    <p>Reclamo formal por dano a DJI Osmo Pocket 3 en Salon Extravaganza, Leon, Gto.</p>
+    <p style="margin-top:0.5rem;">
+        <span class="status-badge status-escalated">Estado: En proceso de resolucion</span>
+    </p>
+</header>
+
+<div class="container">
+
+    <div class="alert alert-danger">
+        <strong>Nota importante:</strong> Esta pagina documenta un caso real de dano a equipo profesional de trabajo
+        causado por uso irresponsable de laser en un salon de eventos. Se busca una resolucion justa y el reemplazo
+        del equipo danado. Toda la informacion aqui presentada es veridica y respaldada con evidencias.
+    </div>
+
+    <!-- RESUMEN DEL CASO -->
+    <div class="section">
+        <h2>Resumen del Caso</h2>
+        <table>
+            <tr><th colspan="2">Datos Generales</th></tr>
+            <tr><td><strong>Afectado</strong></td><td>Producciones Foro 7 (Arturo Cruz)</td></tr>
+            <tr><td><strong>Equipo danado</strong></td><td>DJI Osmo Pocket 3 Creator Combo 4K/UHD</td></tr>
+            <tr><td><strong>No. serie</strong></td><td>5WTZM9C002CVXL</td></tr>
+            <tr><td><strong>Tipo de dano</strong></td><td>Sensor CMOS quemado por laser - linea horizontal roja y linea vertical azul permanentes</td></tr>
+            <tr><td><strong>Fecha del evento</strong></td><td>14 de febrero de 2026</td></tr>
+            <tr><td><strong>Evento</strong></td><td>XV Anos de Jade Ramos</td></tr>
+            <tr><td><strong>Lugar</strong></td><td>Salon Extravaganza, Blvd. Mariano Escobedo Ote. #4821, Cd Satelite, 37407, Leon, Gto.</td></tr>
+            <tr><td><strong>Causa</strong></td><td>Laser del salon proyectando texto/nombre atravesando la pista de baile a altura de personas (~1m a 3m), impactando directamente el sensor de la camara durante grabacion 360</td></tr>
+        </table>
+    </div>
+
+    <!-- MONTOS -->
+    <div class="section">
+        <h2>Valuacion del Dano</h2>
+        <table>
+            <tr><th>Concepto</th><th>Monto</th></tr>
+            <tr><td>Costo original del equipo (Liverpool, 21 Nov 2024)</td><td><strong>$14,399.00 MXN</strong></td></tr>
+            <tr><td>Pedido Liverpool No.</td><td>3330051311</td></tr>
+            <tr><td>No. Boleta</td><td>039241121989536</td></tr>
+            <tr><td>Costo de reemplazo actual (Liverpool)</td><td><strong>$9,199.00 MXN</strong></td></tr>
+            <tr><td>Reparacion DJI Mexico</td><td><strong>NO DISPONIBLE</strong> - Sin cobertura ni servicio de reparacion en Mexico para este modelo</td></tr>
+        </table>
+        <div class="monto-highlight">
+            Monto solicitado de reemplazo: $9,199.00 MXN
+        </div>
+        <p style="text-align:center; color:var(--muted);">
+            Se solicita unicamente el costo de reemplazo ($9,199), no el costo original ($14,399),
+            como gesto de buena fe para llegar a una resolucion justa.
+        </p>
+    </div>
+
+    <!-- DESCRIPCION DEL INCIDENTE -->
+    <div class="section">
+        <h2>Descripcion del Incidente</h2>
+        <p>El dia <strong>14 de febrero de 2026</strong>, durante la celebracion de XV Anos de Jade Ramos en el
+        <strong>Salon Extravaganza</strong> en Leon, Guanajuato, se utilizaron efectos laser como parte de la
+        ambientacion del salon.</p>
+
+        <p style="margin-top:1rem;">El laser proyectaba el nombre del salon/texto con dimensiones aproximadas de
+        <strong>1.5 metros de altura por 6 metros de largo</strong> sobre un panel/pared. El rayo laser cruzaba
+        la pista de baile a una altura entre <strong>1 metro y 3 metros</strong>, lo cual representa:</p>
+
+        <div class="alert" style="margin:1rem 0;">
+            <strong>Condiciones de riesgo:</strong>
+            <ul style="margin-top:0.5rem; padding-left:1.5rem;">
+                <li>El laser atravesaba la pista de baile donde transitaban personas</li>
+                <li>Cualquier persona que cruzara la pista podia ser interceptada por el rayo</li>
+                <li>El rayo no era visible como linea, solo se veia como un punto de luz en el destino</li>
+                <li>Al realizar una grabacion 360 grados desde el centro de la pista, la camara giro directamente hacia el laser</li>
+                <li>El laser dano permanentemente el sensor CMOS de la camara, dejando lineas visibles en toda grabacion</li>
+                <li>Ademas del riesgo al equipo, este tipo de instalacion representa un <strong>riesgo para la salud visual</strong> de los asistentes</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CRONOLOGIA -->
+    <div class="section">
+        <h2>Cronologia de Hechos</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="date">21 de noviembre de 2024</div>
+                <p>Compra de DJI Osmo Pocket 3 Creator Combo en Liverpool Leon por $14,399.00 MXN</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">28 de noviembre de 2024</div>
+                <p>Activacion del equipo en DJI (fecha de activacion registrada)</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">14 de febrero de 2026</div>
+                <p>Evento XV Anos de Jade Ramos en Salon Extravaganza. Durante la grabacion, el laser del salon dana el sensor de la camara.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">15-16 de febrero de 2026</div>
+                <p>Se detecta el dano en el sensor. Se verifica que DJI no ofrece cobertura ni reparacion en Mexico. Se contacta al tecnico del laser, quien remite al organizador.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">16 de febrero de 2026</div>
+                <p>Se contacta al organizador del evento, quien remite al gerente del salon. Se acude al Salon Extravaganza. El gerente se niega a pagar y senala que la clienta pidio el laser. Se advierte sobre posible denuncia ante PROFECO o via legal. El gerente indica que "mandara mensaje" pero se niega a dar fecha de resolucion.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTES INVOLUCRADAS -->
+    <div class="section">
+        <h2>Partes Involucradas</h2>
+        <table>
+            <tr><th>Parte</th><th>Datos</th><th>Rol</th></tr>
+            <tr>
+                <td><strong>Salon Extravaganza</strong></td>
+                <td>
+                    Blvd. Mariano Escobedo Ote. #4821<br>
+                    Cd Satelite, 37407, Leon, Gto.<br>
+                    Tel: 477 255 1093<br>
+                    salonextravaganza.com
+                </td>
+                <td>Salon de eventos propietario/operador del equipo laser que causo el dano</td>
+            </tr>
+            <tr>
+                <td><strong>Fernanda Escobedo</strong></td>
+                <td>
+                    Asistente Administrativo<br>
+                    Tel: 477 470 1723 ext. 624<br>
+                    administracion@salonextravaganza.com
+                </td>
+                <td>Contacto administrativo del salon</td>
+            </tr>
+            <tr>
+                <td><strong>Producciones Foro 7</strong></td>
+                <td>
+                    Arturo Cruz<br>
+                    WhatsApp: 477-920-3776
+                </td>
+                <td>Afectado - Servicio de fotografia y video contratado para el evento</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FUNDAMENTO LEGAL -->
+    <div class="section">
+        <h2>Fundamento Legal</h2>
+        <div class="legal-box">
+            <h3 style="margin-bottom:1rem;">Vias de accion disponibles:</h3>
+            <p><strong>1. PROFECO (Procuraduria Federal del Consumidor)</strong></p>
+            <p>Queja por dano a propiedad causado por servicios deficientes o peligrosos del establecimiento.
+            Fundamento: Ley Federal de Proteccion al Consumidor, articulos relativos a la responsabilidad
+            del proveedor por danos causados por deficiencias en sus servicios.</p>
+
+            <p style="margin-top:1rem;"><strong>2. Demanda Civil por Dano a Propiedad</strong></p>
+            <p>Accion civil por responsabilidad extracontractual (dano a propiedad ajena).
+            Codigo Civil del Estado de Guanajuato - Obligacion de reparar el dano causado por actos ilicitos o negligentes.</p>
+
+            <p style="margin-top:1rem;"><strong>3. NOM-007-ENER y regulaciones de seguridad</strong></p>
+            <p>El uso de laser clase 3B o 4 en espacios publicos sin medidas de seguridad adecuadas puede
+            constituir una infraccion a normas de seguridad aplicables.</p>
+
+            <p style="margin-top:1rem;"><strong>4. Riesgo a la salud publica</strong></p>
+            <p>Un laser que cruza la pista de baile a altura de personas no solo dana equipos,
+            sino que representa un riesgo real de dano ocular para los asistentes al evento.</p>
+        </div>
+    </div>
+
+    <!-- EVIDENCIAS -->
+    <div class="section">
+        <h2>Evidencias Fotograficas y Documentales</h2>
+
+        <h3 style="margin:1rem 0 0.5rem;">Dano al Sensor</h3>
+        <div class="evidencia-grid">
+            <div class="evidencia-card">
+                <img src="evidencias/sensor-danado.jpg" alt="Sensor CMOS danado por laser" onclick="openLightbox(this)">
+                <div class="caption">Sensor CMOS danado: linea horizontal roja + linea vertical azul</div>
+            </div>
+            <div class="evidencia-card">
+                <img src="evidencias/camara-fisica.jpg" alt="DJI Osmo Pocket 3" onclick="openLightbox(this)">
+                <div class="caption">DJI Osmo Pocket 3 - Equipo afectado</div>
+            </div>
+        </div>
+
+        <h3 style="margin:1.5rem 0 0.5rem;">Comprobantes de Compra</h3>
+        <div class="evidencia-grid">
+            <div class="evidencia-card">
+                <img src="evidencias/comprobante-compra.jpg" alt="Comprobante de compra Liverpool" onclick="openLightbox(this)">
+                <div class="caption">Comprobante Liverpool - $14,399.00 MXN (21 Nov 2024)</div>
+            </div>
+            <div class="evidencia-card">
+                <img src="evidencias/comprobante-pedido.jpg" alt="Pedido Liverpool" onclick="openLightbox(this)">
+                <div class="caption">Pedido Liverpool #3330051311</div>
+            </div>
+            <div class="evidencia-card">
+                <img src="evidencias/precio-reemplazo.jpg" alt="Precio de reemplazo actual" onclick="openLightbox(this)">
+                <div class="caption">Precio de reemplazo actual: $9,199.00 MXN</div>
+            </div>
+        </div>
+
+        <h3 style="margin:1.5rem 0 0.5rem;">DJI - Sin Cobertura de Reparacion</h3>
+        <div class="evidencia-grid">
+            <div class="evidencia-card">
+                <img src="evidencias/dji-sin-cobertura.jpg" alt="DJI sin cobertura" onclick="openLightbox(this)">
+                <div class="caption">DJI: "Este servicio no tiene cobertura para este producto"</div>
+            </div>
+        </div>
+
+        <h3 style="margin:1.5rem 0 0.5rem;">Salon Extravaganza</h3>
+        <div class="evidencia-grid">
+            <div class="evidencia-card">
+                <img src="evidencias/tarjeta-salon.jpg" alt="Tarjeta del salon" onclick="openLightbox(this)">
+                <div class="caption">Tarjeta de presentacion - Salon Extravaganza</div>
+            </div>
+        </div>
+
+        <h3 style="margin:1.5rem 0 0.5rem;">Video Evidencia</h3>
+        <div class="evidencia-grid">
+            <div class="evidencia-card">
+                <video controls>
+                    <source src="evidencias/video-evidencia.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+                <div class="caption">Video de evidencia del dano</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTAS CONSTITUTIVAS / BITACORA -->
+    <div class="section">
+        <h2>Bitacora de Gestiones y Actas</h2>
+        <p style="color:var(--muted); margin-bottom:1rem;">Registro cronologico de todas las gestiones realizadas para la resolucion del caso.</p>
+
+        <div class="actas-section">
+            <h3>Acta #1 - Contacto con Tecnico de Laser</h3>
+            <p><strong>Fecha:</strong> 15-16 de febrero de 2026</p>
+            <p><strong>Resultado:</strong> El tecnico de laser confirma el dano y remite al organizador del evento.</p>
+            <p><strong>Estado:</strong> <span class="status-badge status-active">Completado</span></p>
+        </div>
+
+        <div class="actas-section">
+            <h3>Acta #2 - Contacto con Organizador del Evento</h3>
+            <p><strong>Fecha:</strong> 16 de febrero de 2026</p>
+            <p><strong>Resultado:</strong> El organizador remite al gerente del Salon Extravaganza.</p>
+            <p><strong>Estado:</strong> <span class="status-badge status-active">Completado</span></p>
+        </div>
+
+        <div class="actas-section">
+            <h3>Acta #3 - Reunion con Gerente del Salon Extravaganza</h3>
+            <p><strong>Fecha:</strong> 16 de febrero de 2026 (lunes)</p>
+            <p><strong>Asistentes:</strong> Arturo Cruz (Producciones Foro 7), Gerente del Salon</p>
+            <p><strong>Resultado:</strong> El gerente se niega a hacerse responsable del dano. Argumenta que la clienta (contratante del evento) fue quien solicito el servicio de laser. Se muestra el contrato del evento. Se advierte sobre posible denuncia ante PROFECO o demanda legal.</p>
+            <p><strong>Respuesta del gerente:</strong> Indica que "mandara un mensaje" pero se niega a proporcionar una fecha concreta de resolucion pese a la insistencia.</p>
+            <p><strong>Estado:</strong> <span class="status-badge status-escalated">Sin resolucion</span></p>
+        </div>
+
+        <div class="actas-section" style="border-left-color: var(--accent);">
+            <h3>Proximos pasos</h3>
+            <ul style="padding-left:1.5rem; margin-top:0.5rem;">
+                <li>Esperar respuesta del gerente (sin fecha definida)</li>
+                <li>En caso de no recibir respuesta satisfactoria: presentar queja formal ante PROFECO</li>
+                <li>Evaluar demanda civil por dano a propiedad</li>
+                <li>Documentar cualquier comunicacion adicional</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SOLICITUD FORMAL -->
+    <div class="section">
+        <h2>Solicitud Formal</h2>
+        <div style="background:var(--primary); color:white; padding:1.5rem; border-radius:8px; text-align:center;">
+            <p style="font-size:1.1rem;">Se solicita al <strong>Salon Extravaganza</strong> el pago de</p>
+            <p style="font-size:2.5rem; font-weight:bold; margin:0.5rem 0;">$9,199.00 MXN</p>
+            <p>correspondiente al costo de reemplazo del equipo DJI Osmo Pocket 3 danado por el laser
+            de su establecimiento durante el evento del 14 de febrero de 2026.</p>
+            <p style="margin-top:1rem; font-size:0.9rem; color:#ccc;">
+                Este monto representa el costo de reemplazo actual, significativamente menor
+                al costo original de $14,399.00 MXN pagado por el equipo.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Documento generado el 16 de febrero de 2026 | Caso documentado por Producciones Foro 7</p>
+    <p style="margin-top:0.5rem;">Todos los derechos reservados. La informacion contenida es veridica y respaldada con evidencias.</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Evidencia ampliada">
+</div>
+
+<script>
+    function openLightbox(img) {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLightbox();
+    });
+</script>
+
+</body>
+</html>
