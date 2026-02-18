@@ -208,6 +208,67 @@
             height: 1px;
             background: #3366ff;
         }
+        .escenario-card {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        .escenario-card.verde { border-color: #28a745; }
+        .escenario-card.amarillo { border-color: #ffc107; }
+        .escenario-card.rojo { border-color: var(--accent); }
+        .escenario-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .escenario-card.verde h4 { color: #155724; }
+        .escenario-card.amarillo h4 { color: #856404; }
+        .escenario-card.rojo h4 { color: #721c24; }
+        .escenario-total {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 2px solid #eee;
+        }
+        .escenario-card.verde .escenario-total { color: #28a745; }
+        .escenario-card.amarillo .escenario-total { color: #856404; }
+        .escenario-card.rojo .escenario-total { color: var(--accent); }
+        .carta-box {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.88rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            color: #222;
+        }
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0.5rem;
+            text-decoration: none;
+        }
+        .btn-download:hover { opacity: 0.9; }
+        .btn-print {
+            background: var(--primary);
+        }
         footer {
             background: var(--primary);
             color: #999;
@@ -306,13 +367,50 @@
             <tr><td>Costo de reemplazo actual (Liverpool)</td><td><strong>$9,199.00 MXN</strong></td></tr>
             <tr><td>Reparación DJI México</td><td><strong>NO DISPONIBLE</strong> &mdash; Sin cobertura ni servicio de reparación en México para este modelo</td></tr>
         </table>
-        <div class="monto-highlight">
-            Monto solicitado de reemplazo: $9,199.00 MXN
+
+        <h3 style="margin:1.5rem 0 0.75rem; color:var(--primary);">Desglose completo de afectaciones</h3>
+        <p style="color:var(--muted); margin-bottom:1rem;">El monto solicitado se ajusta según la disposición del Salón Extravaganza para resolver el caso.</p>
+
+        <div class="escenario-card verde">
+            <h4>&#9679; Escenario A &mdash; Acuerdo voluntario (plazo: 10 días hábiles)</h4>
+            <table>
+                <tr><th>Concepto</th><th>Monto</th></tr>
+                <tr><td>Reemplazo equipo DJI Osmo Pocket 3</td><td><strong>$9,199.00 MXN</strong></td></tr>
+                <tr><td>Afectación al servicio de video contratado (XIV Años Jade Ramos)</td><td><strong>$8,000.00 MXN</strong></td></tr>
+            </table>
+            <div class="escenario-total">Total: $17,199.00 MXN</div>
         </div>
-        <p style="text-align:center; color:var(--muted);">
-            Se solicita únicamente el costo de reemplazo ($9,199), no el costo original ($14,399),
-            como gesto de buena fe para llegar a una resolución justa.
-        </p>
+
+        <div class="escenario-card amarillo">
+            <h4>&#9679; Escenario B &mdash; Pagan solo el equipo o demoran respuesta</h4>
+            <table>
+                <tr><th>Concepto</th><th>Monto</th></tr>
+                <tr><td>Reemplazo equipo DJI Osmo Pocket 3</td><td><strong>$9,199.00 MXN</strong></td></tr>
+                <tr><td>Afectación al servicio de video contratado</td><td><strong>$8,000.00 MXN</strong></td></tr>
+                <tr><td>Gastos de transporte a reuniones de gestión</td><td><strong>$300.00 MXN</strong></td></tr>
+                <tr><td>Dominio y hosting del sitio de documentación</td><td><strong>$200.00 MXN</strong></td></tr>
+                <tr><td>Tiempo invertido en gestión (~10 hrs × $300/hr)</td><td><strong>$3,000.00 MXN</strong></td></tr>
+            </table>
+            <div class="escenario-total">Total: $20,699.00 MXN</div>
+        </div>
+
+        <div class="escenario-card rojo">
+            <h4>&#9679; Escenario C &mdash; Negativa total &rarr; PROFECO / Demanda civil</h4>
+            <table>
+                <tr><th>Concepto</th><th>Monto</th></tr>
+                <tr><td>Reemplazo equipo DJI Osmo Pocket 3</td><td><strong>$9,199.00 MXN</strong></td></tr>
+                <tr><td>Afectación al servicio de video contratado</td><td><strong>$8,000.00 MXN</strong></td></tr>
+                <tr><td>Gastos de transporte, dominio y hosting</td><td><strong>$500.00 MXN</strong></td></tr>
+                <tr><td>Tiempo invertido en gestión</td><td><strong>$3,000.00 MXN</strong></td></tr>
+                <tr><td>Daño moral (estrés, afectación reputacional, pérdida de cliente)</td><td><strong>$10,000.00 MXN</strong></td></tr>
+            </table>
+            <div class="escenario-total">Total: $30,699.00 MXN</div>
+            <p style="margin-top:0.75rem; font-size:0.85rem; color:#721c24;">
+                <strong>Nota:</strong> En demanda civil, el juez puede ordenar hasta el doble del daño comprobado por negligencia.
+                Adicionalmente, la denuncia ante Protección Civil por uso irregular de láseres en espacios públicos
+                puede afectar el permiso de operación del establecimiento.
+            </p>
+        </div>
     </div>
 
     <!-- DESCRIPCION DEL INCIDENTE -->
@@ -685,14 +783,126 @@
         <h2>Solicitud Formal</h2>
         <div style="background:var(--primary); color:white; padding:1.5rem; border-radius:8px; text-align:center;">
             <p style="font-size:1.1rem;">Se solicita al <strong>Salón Extravaganza</strong> el pago de</p>
-            <p style="font-size:2.5rem; font-weight:bold; margin:0.5rem 0;">$9,199.00 MXN</p>
-            <p>correspondiente al costo de reemplazo del equipo DJI Osmo Pocket 3 dañado por el láser
-            de su establecimiento durante el evento del 14 de febrero de 2026.</p>
+            <p style="font-size:2.5rem; font-weight:bold; margin:0.5rem 0;">$20,699.00 MXN</p>
+            <p>por daño al equipo, afectación al servicio contratado y gastos de gestión derivados
+            de la negligencia en el uso del equipo láser durante el evento del 14 de febrero de 2026.</p>
             <p style="margin-top:1rem; font-size:0.9rem; color:#ccc;">
-                Este monto representa el costo de reemplazo actual, significativamente menor
-                al costo original de $14,399.00 MXN pagado por el equipo.
+                Monto inicial de acuerdo voluntario: $17,199 MXN &nbsp;|&nbsp;
+                Monto con daño moral (vía legal): $30,699 MXN
             </p>
         </div>
+    </div>
+
+    <!-- CARTA FORMAL -->
+    <div class="section" id="carta-formal">
+        <h2>Carta Formal de Reclamación</h2>
+        <p style="color:var(--muted); margin-bottom:1rem;">
+            Documento formal listo para enviar al Salón Extravaganza. Descárgalo o imprímelo directamente.
+        </p>
+
+        <div style="margin-bottom:1rem;">
+            <button class="btn-download" onclick="descargarCarta()">&#8595; Descargar carta (.txt)</button>
+            <button class="btn-download btn-print" onclick="imprimirCarta()">&#128438; Imprimir / Guardar PDF</button>
+        </div>
+
+        <div class="carta-box" id="texto-carta">León, Guanajuato, a 18 de febrero de 2026
+
+Salón Extravaganza
+Blvd. Mariano Escobedo Ote. #4821
+Cd. Satélite, 37407, León, Guanajuato
+administracion@salonextravaganza.com
+Tel: 477 255 1093
+
+ASUNTO: RECLAMACIÓN FORMAL POR DAÑO A EQUIPO PROFESIONAL
+         Caso No. FORO7-2026-001
+
+Estimados señores:
+
+Por medio del presente documento, yo, Arturo Cruz, representante de Producciones
+Foro 7, me dirijo a ustedes de manera formal para hacer constar el daño causado a
+mi equipo de trabajo durante el evento realizado en sus instalaciones, y para
+solicitar la compensación correspondiente.
+
+HECHOS:
+
+1. El día 14 de febrero de 2026, durante la celebración de XV Años de Jade Ramos
+   en el Salón Extravaganza en León, Guanajuato, el equipo láser operado por su
+   establecimiento proyectaba el texto "EXTRAVAGANZA" cruzando la pista de baile
+   a una altura de entre 1 y 3 metros, en la zona de tránsito de asistentes y
+   personal de servicios, sin señalización de advertencia ni medidas de seguridad.
+
+2. Durante el desarrollo del evento, al realizar una grabación panorámica 360°
+   desde el centro de la pista de baile, el rayo láser impactó directamente el
+   sensor CMOS de mi cámara DJI Osmo Pocket 3 (No. de serie: 5WTZM9C002CVXL),
+   causando daño permanente e irreparable, manifestado como una línea vertical
+   blanca permanente y dos líneas horizontales (roja y azul) que aparecen en toda
+   grabación y fotografía realizada con el equipo a partir de ese momento.
+
+3. Se verificó ante DJI que el modelo no cuenta con cobertura de reparación de
+   sensor en México, lo que hace imposible recuperar el equipo.
+
+4. El daño no solo afectó el equipo, sino también el servicio de video profesional
+   contratado para el evento (valuado en $8,000.00 MXN), comprometiendo la calidad
+   total del material entregable al cliente y causando daño a la reputación
+   profesional de Producciones Foro 7.
+
+5. El día 16 de febrero de 2026, sostuve una reunión con el gerente del Salón
+   Extravaganza, quien se negó a asumir responsabilidad, argumentando que la
+   contratante del evento solicitó el servicio de láser. Sin embargo, la
+   responsabilidad de operar dicho equipo con las medidas de seguridad requeridas
+   recae en el establecimiento, independientemente de quién lo haya contratado.
+
+6. Adicionalmente, las evidencias documentadas muestran que el láser apuntaba
+   directamente a la cara y cuerpo de menores de edad (chambelanes) y de la
+   quinceañera durante el vals, lo que constituye un riesgo grave a la salud
+   visual de los asistentes al evento.
+
+SOLICITUD:
+
+Por lo anterior, solicito formalmente el pago de los siguientes conceptos:
+
+   Concepto                                              Monto
+   ─────────────────────────────────────────────────────────────
+   Reemplazo equipo DJI Osmo Pocket 3               $  9,199.00
+   Afectación al servicio de video contratado       $  8,000.00
+   Gastos de transporte y documentación             $    500.00
+   Tiempo invertido en gestión (~10 hrs)            $  3,000.00
+   ─────────────────────────────────────────────────────────────
+   TOTAL SOLICITADO                                 $ 20,699.00 MXN
+
+Les otorgo un plazo de 10 (diez) días hábiles contados a partir de la recepción
+del presente documento para dar respuesta y acordar la forma de pago.
+
+En caso de no recibir respuesta favorable en dicho plazo, me reservo el derecho de:
+
+   a) Presentar queja formal ante la Procuraduría Federal del Consumidor (PROFECO).
+
+   b) Interponer demanda civil por daños y perjuicios ante los Juzgados Civiles
+      del Estado de Guanajuato, en cuyo caso el monto reclamado se incrementará
+      a $30,699.00 MXN (incluyendo daño moral).
+
+   c) Presentar denuncia ante las autoridades de Protección Civil del Estado de
+      Guanajuato por el uso de láseres de alta potencia en espacios públicos sin
+      las medidas de seguridad requeridas, lo cual representa un riesgo a la salud
+      visual de los asistentes y puede derivar en la revisión del permiso de
+      operación del establecimiento.
+
+Toda la documentación, evidencias fotográficas y videos que respaldan este caso
+están disponibles públicamente en: http://caso-laser.invitados.org/
+
+Quedo a sus órdenes para cualquier aclaración y en espera de su pronta respuesta.
+
+
+Atentamente,
+
+
+_________________________________
+Arturo Cruz
+Producciones Foro 7
+WhatsApp: 477-920-3776
+León, Guanajuato, México
+
+Fecha: 18 de febrero de 2026</div>
     </div>
 
 </div>
@@ -718,6 +928,35 @@
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeLightbox();
     });
+
+    function descargarCarta() {
+        var texto = document.getElementById('texto-carta').innerText;
+        var blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'Carta-Reclamacion-SalonExtravaganza.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function imprimirCarta() {
+        var contenido = document.getElementById('texto-carta').innerText;
+        var ventana = window.open('', '_blank');
+        ventana.document.write(
+            '<html><head><title>Carta Formal - Caso Salón Extravaganza</title>' +
+            '<style>body{font-family:Courier New,monospace;font-size:12pt;line-height:1.8;' +
+            'margin:2.5cm;color:#000;white-space:pre-wrap;}' +
+            '@media print{body{margin:2cm;}}' +
+            '</style></head><body>' + contenido.replace(/</g,'&lt;').replace(/>/g,'&gt;') +
+            '</body></html>'
+        );
+        ventana.document.close();
+        ventana.focus();
+        ventana.print();
+    }
 </script>
 
 </body>
