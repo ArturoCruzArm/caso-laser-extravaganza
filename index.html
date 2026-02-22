@@ -448,6 +448,115 @@
         </div>
     </div>
 
+
+    <!-- ESPECIFICACIONES TÉCNICAS DEL LÁSER -->
+    <div class="section">
+        <h2>Especificaciones Técnicas del Láser Involucrado</h2>
+
+        <div class="alert alert-danger">
+            <strong>Láser identificado: LÁSER RGB 10W &mdash; Clase IV (máxima categoría de peligro según IEC 60825-1)</strong><br>
+            La clasificación internacional IEC 60825-1 designa <strong>Clase IV</strong> a cualquier láser superior a 500 mW.
+            Este equipo opera con 3,000&ndash;4,200 mW por canal: entre <strong>6 y 8 veces</strong> el umbral de la clase más peligrosa.
+            Un solo canal de este láser es suficiente para causar ceguera instantánea e irreversible.
+        </div>
+
+        <h3 style="margin:1.5rem 0 0.75rem; color:var(--primary);">Potencia por Canal</h3>
+        <table>
+            <tr>
+                <th>Canal</th><th>Potencia</th><th>Longitud de onda</th><th>Umbral Clase IV</th><th>Factor de riesgo</th>
+            </tr>
+            <tr>
+                <td><span style="color:#cc0000; font-weight:bold;">&#11044; Rojo</span></td>
+                <td><strong>3,000 mW</strong></td><td>638 nm</td><td>500 mW</td>
+                <td style="color:#cc0000; font-weight:bold;">6&times; el l&iacute;mite</td>
+            </tr>
+            <tr>
+                <td><span style="color:#007700; font-weight:bold;">&#11044; Verde</span></td>
+                <td><strong>2,800 mW</strong></td><td>525 nm</td><td>500 mW</td>
+                <td style="color:#cc0000; font-weight:bold;">5.6&times; el l&iacute;mite</td>
+            </tr>
+            <tr>
+                <td><span style="color:#0000cc; font-weight:bold;">&#11044; Azul</span></td>
+                <td><strong>4,200 mW</strong></td><td>450 nm</td><td>500 mW</td>
+                <td style="color:#cc0000; font-weight:bold;">8.4&times; el l&iacute;mite</td>
+            </tr>
+            <tr style="background:#f8d7da;">
+                <td><strong>TOTAL</strong></td>
+                <td><strong>10,000 mW (10 W)</strong></td><td>RGB combinado</td><td>&mdash;</td>
+                <td style="color:#721c24; font-weight:bold;">Clase IV (m&aacute;xima)</td>
+            </tr>
+        </table>
+
+        <h3 style="margin:1.5rem 0 0.75rem; color:var(--primary);">Ficha T&eacute;cnica Completa</h3>
+        <table>
+            <tr><th>Par&aacute;metro</th><th>Valor</th></tr>
+            <tr><td>Modelo</td><td>L&Aacute;SER RGB 10W con APP</td></tr>
+            <tr><td>Potencia total</td><td>10 W &mdash; Rojo 3,000 mW / Verde 2,800 mW / Azul 4,200 mW</td></tr>
+            <tr><td>Sistema de reproducci&oacute;n</td><td>DMX512, control por voz, autom&aacute;tico, ILDA, animaci&oacute;n</td></tr>
+            <tr><td>Galvan&oacute;metro de escaneo</td><td>Alta velocidad 30,000 PPS (30 KPPS)</td></tr>
+            <tr><td>&Aacute;ngulo de escaneo</td><td>&plusmn;25&deg;</td></tr>
+            <tr><td>Divergencia del haz</td><td>6.5 mm / &lt;1.2 mrad</td></tr>
+            <tr><td>Modulaci&oacute;n</td><td>TTL y anal&oacute;gico (0&ndash;3 KHz)</td></tr>
+            <tr><td>Potencia de la m&aacute;quina</td><td>70 W</td></tr>
+            <tr><td>Peso</td><td>5.9 kg</td></tr>
+            <tr><td>Dimensiones</td><td>230 &times; 230 &times; 193 mm</td></tr>
+            <tr><td>Precio del equipo</td><td>$11,500 MXN</td></tr>
+            <tr><td>Uso declarado por fabricante</td><td>Escenarios, discotecas, hoteles &mdash; <em>no</em> para exposici&oacute;n directa a personas</td></tr>
+        </table>
+
+        <h3 style="margin:1.5rem 0 0.75rem; color:var(--primary);">Por Qu&eacute; el Patr&oacute;n de Da&ntilde;o es Consistente con este L&aacute;ser</h3>
+        <div class="legal-box">
+            <p>El sensor CMOS de la DJI Osmo Pocket 3 presenta <strong>tres l&iacute;neas permanentes</strong>: una vertical blanca
+            y dos horizontales (roja y azul). Este patr&oacute;n es t&eacute;cnicamente explicable solo por las
+            caracter&iacute;sticas de un l&aacute;ser RGB multicanal como el identificado:</p>
+            <ul style="padding-left:1.5rem; margin-top:1rem;">
+                <li style="margin-bottom:0.75rem;">
+                    <strong>L&iacute;nea vertical blanca:</strong> El haz del galvan&oacute;metro (30 KPPS) cruz&oacute; la lente de la c&aacute;mara
+                    durante el paneo 360&deg;. La &oacute;ptica concentr&oacute; la energ&iacute;a sobre el sensor, quemando una columna de
+                    fotodetectores que reportan saturaci&oacute;n total (blanco) en toda la imagen.
+                    La direcci&oacute;n vertical corresponde al eje de barrido del galvan&oacute;metro en el momento del impacto.
+                </li>
+                <li style="margin-bottom:0.75rem;">
+                    <strong>L&iacute;nea horizontal roja (638 nm, 3,000 mW):</strong> El canal rojo del l&aacute;ser quem&oacute; una fila
+                    de p&iacute;xeles del filtro rojo del sensor (patr&oacute;n Bayer). La longitud de onda de 638 nm corresponde
+                    exactamente al rojo visible, afectando diferenciadamente ese canal.
+                </li>
+                <li>
+                    <strong>L&iacute;nea horizontal azul (450 nm, 4,200 mW):</strong> El canal azul &mdash; el de mayor
+                    potencia (4,200 mW) &mdash; quem&oacute; una fila diferente de p&iacute;xeles del canal azul del sensor Bayer.
+                    La separaci&oacute;n entre las l&iacute;neas roja y azul corresponde a la disposici&oacute;n f&iacute;sica de los subp&iacute;xeles
+                    en el filtro del sensor CMOS.
+                </li>
+            </ul>
+            <p style="margin-top:1rem; padding-top:1rem; border-top:1px solid #bee5eb;">
+                <strong>Conclusi&oacute;n t&eacute;cnica:</strong> El patr&oacute;n de da&ntilde;o (blanco vertical + rojo horizontal + azul horizontal)
+                es la <em>firma caracter&iacute;stica</em> de un impacto de l&aacute;ser RGB multicanal sobre un sensor CMOS con
+                patr&oacute;n Bayer. No existe otro mecanismo de fallo conocido que produzca exactamente este patr&oacute;n
+                diferenciado en tres l&iacute;neas ortogonales de colores distintos. La evidencia es t&eacute;cnicamente inequ&iacute;voca.
+            </p>
+        </div>
+
+        <h3 style="margin:1.5rem 0 0.75rem; color:var(--primary);">Obligaciones del Operador para L&aacute;ser Clase IV</h3>
+        <div class="actas-section" style="border-left-color: var(--accent);">
+            <p>Seg&uacute;n la norma internacional <strong>IEC 60825-1</strong> (Seguridad de productos l&aacute;ser),
+            un l&aacute;ser Clase IV como el identificado requiere obligatoriamente:</p>
+            <ul style="padding-left:1.5rem; margin-top:0.75rem;">
+                <li>Operador con certificaci&oacute;n en seguridad l&aacute;ser</li>
+                <li>Zona de exclusi&oacute;n delimitada, se&ntilde;alizada y restringida al p&uacute;blico</li>
+                <li>Equipo de protecci&oacute;n ocular disponible para el personal</li>
+                <li>An&aacute;lisis de riesgo del &aacute;rea de instalaci&oacute;n antes de cada uso</li>
+                <li>Garantizar que el haz <strong>nunca</strong> intersecte la zona de audiencia a altura de ojos
+                (en pie: 1.0&ndash;2.0 m; sentado: 0.6&ndash;1.2 m)</li>
+                <li>Controles de ingenier&iacute;a para evitar reflexiones especulares hacia el p&uacute;blico</li>
+            </ul>
+            <p style="margin-top:1rem; color:#721c24; font-weight:600;">
+                El Sal&oacute;n Extravaganza oper&oacute; este equipo Clase IV proyectando el haz a 1&ndash;3 metros de altura
+                directamente sobre la pista de baile donde transitaban asistentes, camer&oacute;grafos y menores de edad,
+                sin ninguna de las medidas de seguridad requeridas por la normativa aplicable.
+            </p>
+        </div>
+    </div>
+
     <!-- DAÑO COLATERAL: REPUTACIÓN Y SERVICIO -->
     <div class="section">
         <h2>Daño Colateral: Afectación al Servicio y Reputación</h2>
@@ -647,9 +756,11 @@
             <p>Acción civil por responsabilidad extracontractual (daño a propiedad ajena).
             Código Civil del Estado de Guanajuato &mdash; Obligación de reparar el daño causado por actos ilícitos o negligentes.</p>
 
-            <p style="margin-top:1rem;"><strong>3. NOM-007-ENER y regulaciones de seguridad</strong></p>
-            <p>El uso de láser clase 3B o 4 en espacios públicos sin medidas de seguridad adecuadas puede
-            constituir una infracción a normas de seguridad aplicables.</p>
+            <p style="margin-top:1rem;"><strong>3. IEC 60825-1 y regulaciones de seguridad láser</strong></p>
+            <p>El equipo identificado es un <strong>LÁSER RGB 10W Clase IV</strong> (3,000&ndash;4,200 mW por canal),
+            la categoría de mayor peligro según IEC 60825-1. Su uso en espacios públicos sin zona de exclusión,
+            señalización ni operador certificado constituye una infracción grave, materia de denuncia ante
+            Protección Civil del Estado de Guanajuato, con riesgo de suspensión del permiso de operación.</p>
 
             <p style="margin-top:1rem;"><strong>4. Riesgo a la salud pública</strong></p>
             <p>Un láser que cruza la pista de baile a altura de personas no solo daña equipos,
