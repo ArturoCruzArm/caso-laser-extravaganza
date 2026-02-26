@@ -340,11 +340,26 @@
         <h2>Descripción Visual del Daño al Sensor</h2>
         <div class="damage-box">
             <p style="margin-bottom:0.5rem; font-size:1.1rem;"><strong>Representación del daño en el sensor CMOS:</strong></p>
-            <div class="line-demo">
-                <div class="line-v"></div>
-                <div class="line-h-red"></div>
-                <div class="line-h-blue"></div>
-            </div>
+            <svg width="400" height="200" viewBox="0 0 400 200" style="display:block;margin:1rem auto;border-radius:6px;max-width:100%;" aria-label="Diagrama de daño al sensor CMOS">
+                <!-- Fondo color sensor -->
+                <rect width="400" height="200" fill="#b0a090" rx="6"/>
+                <!-- Línea vertical punteada negra menor (col 1, x=100) -->
+                <line x1="100" y1="0" x2="100" y2="200" stroke="#222" stroke-width="2.5" stroke-dasharray="7,5"/>
+                <!-- Línea vertical punteada negra mayor (col 3, x=300) -->
+                <line x1="300" y1="0" x2="300" y2="200" stroke="#222" stroke-width="2.5" stroke-dasharray="7,5"/>
+                <!-- Línea horizontal roja (y=100) -->
+                <line x1="0" y1="100" x2="400" y2="100" stroke="#cc2200" stroke-width="2.5"/>
+                <!-- Intersección mayor (3,1): punto blanco brillante prominente -->
+                <circle cx="300" cy="100" r="9" fill="white"/>
+                <!-- Intersección menor (1,1): punto blanco pequeño -->
+                <circle cx="100" cy="100" r="5" fill="white" opacity="0.85"/>
+                <!-- Cruz negra poco notoria en intersección menor -->
+                <line x1="88" y1="100" x2="112" y2="100" stroke="#333" stroke-width="1.5" opacity="0.55"/>
+                <line x1="100" y1="88" x2="100" y2="112" stroke="#333" stroke-width="1.5" opacity="0.55"/>
+                <!-- Etiquetas -->
+                <text x="300" y="130" text-anchor="middle" fill="white" font-size="11" font-family="monospace" opacity="0.8">(3,1) mayor</text>
+                <text x="100" y="130" text-anchor="middle" fill="white" font-size="11" font-family="monospace" opacity="0.8">(1,1) menor</text>
+            </svg>
             <p>
                <span style="color:#aaa;">&#9647;&#9647;&#9647; Línea vertical punteada NEGRA</span> &nbsp;|&nbsp;
                <span style="color:#ffffff;">&#11044; Punto BLANCO brillante (1ª intersección)</span> &nbsp;|&nbsp;
