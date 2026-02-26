@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demanda Civil — Caso Salón Extravaganza</title>
+    <style>
+        :root { --primary:#1a1a2e; --accent:#e94560; --bg:#f5f5f5; --card:#fff; --text:#333; --muted:#666; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+        header { background:#0d3b66; color:white; padding:2rem 1rem; text-align:center; }
+        header h1 { font-size:1.8rem; margin-bottom:0.5rem; }
+        header p { color:#a8d4f5; font-size:0.95rem; }
+        .container { max-width:960px; margin:0 auto; padding:1rem; }
+        .alert { background:#fff3cd; border-left:4px solid #ffc107; padding:1rem 1.5rem; margin:1.5rem 0; border-radius:4px; }
+        .alert-danger { background:#f8d7da; border-left-color:#cc0000; }
+        .alert-success { background:#d4edda; border-left-color:#28a745; }
+        .alert-info { background:#d1ecf1; border-left-color:#17a2b8; }
+        .section { background:var(--card); border-radius:8px; padding:1.5rem; margin:1.5rem 0; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+        .section h2 { color:#0d3b66; border-bottom:2px solid #1a6eb5; padding-bottom:0.5rem; margin-bottom:1rem; font-size:1.3rem; }
+        .section h3 { color:#0d3b66; margin:1.25rem 0 0.5rem; font-size:1.05rem; }
+        table { width:100%; border-collapse:collapse; margin:1rem 0; }
+        th, td { padding:0.75rem; text-align:left; border-bottom:1px solid #eee; }
+        th { background:#0d3b66; color:white; font-weight:600; }
+        tr:hover { background:#f9f9f9; }
+        .info-card { background:#0d3b66; color:white; border-radius:8px; padding:1.5rem; margin:1rem 0; }
+        .info-card p { margin:0.4rem 0; }
+        .info-card a { color:#a8d4f5; }
+        .step { display:flex; gap:1rem; margin:1rem 0; align-items:flex-start; }
+        .step-num { background:#1a6eb5; color:white; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem; flex-shrink:0; }
+        .step-body { flex:1; }
+        .step-body strong { display:block; font-size:1rem; margin-bottom:0.25rem; }
+        .checklist { list-style:none; padding:0; }
+        .checklist li { padding:0.5rem 0; border-bottom:1px solid #eee; display:flex; align-items:flex-start; gap:0.75rem; }
+        .checklist li::before { content:"\2610"; font-size:1.3rem; color:#1a6eb5; flex-shrink:0; }
+        .checklist li:last-child { border-bottom:none; }
+        .carta-box { background:#fff; border:1px solid #ccc; border-radius:8px; padding:2rem; margin:1rem 0; font-family:'Courier New',monospace; font-size:0.85rem; line-height:1.9; white-space:pre-wrap; color:#222; }
+        .btn { display:inline-flex; align-items:center; gap:0.5rem; background:#1a6eb5; color:white; border:none; padding:0.75rem 1.5rem; border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer; margin:0.5rem; text-decoration:none; }
+        .btn:hover { opacity:0.9; }
+        .btn-secondary { background:#1a1a2e; }
+        .nav-back { display:inline-flex; align-items:center; gap:0.5rem; color:#1a6eb5; text-decoration:none; margin-bottom:1rem; font-size:0.95rem; }
+        .nav-back:hover { text-decoration:underline; }
+        .badge { display:inline-block; padding:0.25rem 0.75rem; border-radius:20px; font-size:0.85rem; font-weight:600; }
+        .badge-warning { background:#fff3cd; color:#856404; }
+        .badge-info { background:#d1ecf1; color:#0c5460; }
+        .highlight-box { background:#e8f4fd; border:2px solid #bee5eb; border-radius:8px; padding:1.25rem; margin:1rem 0; }
+        footer { background:#1a1a2e; color:#999; text-align:center; padding:1.5rem; margin-top:2rem; font-size:0.85rem; }
+        @media(max-width:600px) { header h1 { font-size:1.3rem; } .container { padding:0.5rem; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>&#9878; Demanda Civil por Daños</h1>
+    <p>Juzgados Civiles de León, Guanajuato — Caso Salón Extravaganza</p>
+    <p style="margin-top:0.5rem;">
+        <span class="badge badge-info">Monto reclamado: $30,699 MXN (vía legal)</span>
+    </p>
+</header>
+
+<div class="container">
+    <a href="index.html" class="nav-back">&#8592; Volver al caso principal</a>
+
+    <div class="alert">
+        <strong>&#128072; Orden recomendado de acciones:</strong> La demanda civil es el paso
+        más formal y contundente. Se recomienda presentar primero la queja en PROFECO
+        (ver <a href="profeco.html">profeco.html</a>). Si PROFECO no logra conciliación,
+        la demanda civil es el siguiente paso. <strong>Puedes presentar ambas simultáneamente.</strong>
+    </div>
+
+    <!-- INFO INSTITUCIÓN -->
+    <div class="section">
+        <h2>&#127968; Dónde ir: Juzgados Civiles de Partido — León</h2>
+        <div class="info-card">
+            <p><strong>&#128205; Dirección:</strong> Carretera León–Cuerámaro km 5, Ciudad Industrial, León de los Aldama, Guanajuato</p>
+            <p><strong>&#128222; Teléfono Poder Judicial Guanajuato:</strong> 473 735 22 00</p>
+            <p><strong>&#128336; Horario:</strong> Lunes a viernes, 9:00 a 14:00 horas</p>
+            <p><strong>&#127760; Poder Judicial Gto.:</strong> <a href="https://www.poderjudicial-gto.gob.mx" target="_blank">poderjudicial-gto.gob.mx</a></p>
+        </div>
+        <div class="alert alert-info" style="margin-top:1rem;">
+            <strong>&#128221; ¿Necesitas abogado?</strong> Para una demanda de $20,699–$30,699 MXN, en
+            Guanajuato puedes optar por el <strong>Juicio Oral Civil</strong> (más ágil) o el juicio
+            ordinario. El juicio oral civil permite en muchos casos representarte tú mismo para montos
+            menores. Sin embargo, si el salón contrata abogado, se recomienda tener uno.
+            <strong>Consulta primero en el Juzgado si aplica el procedimiento oral para tu monto.</strong>
+            También puedes consultar con la Defensoría Pública del Estado de Guanajuato (gratuita).
+        </div>
+        <div class="highlight-box">
+            <p><strong>Defensoría Pública del Estado de Guanajuato (asesoría legal gratuita):</strong></p>
+            <p>&#128222; 800 000 1700 (sin costo) &nbsp;|&nbsp; &#127760; <a href="https://www.defpublicagto.gob.mx" target="_blank">defpublicagto.gob.mx</a></p>
+            <p style="margin-top:0.5rem; font-size:0.9rem; color:var(--muted);">
+                Pueden asesorarte sobre si requieres abogado y en qué juzgado presentar tu demanda.
+            </p>
+        </div>
+    </div>
+
+    <!-- PASO A PASO -->
+    <div class="section">
+        <h2>&#128203; Paso a Paso</h2>
+
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <strong>Consulta primero en el Juzgado (o llama)</strong>
+                Al llegar, pide informes sobre el procedimiento para presentar una demanda civil
+                por daños y perjuicios. Pregunta si tu monto califica para el <strong>Juicio Oral Civil</strong>.
+                Confirma el juzgado competente para tu caso.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <strong>Presenta tu escrito de demanda en la Mesa de Partes</strong>
+                Lleva el escrito de demanda (ver abajo) en 3 tantos: uno para el juzgado,
+                uno para el demandado (salón), uno para ti (que te sellen como acuse).
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <strong>Paga las cuotas de actuación si aplican</strong>
+                Los juzgados civiles pueden cobrar cuotas de actuación (gastos de notificación
+                al demandado, etc.). Pregunta el monto al presentar. Guarda todos los recibos.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <strong>El juzgado emplazará al Salón Extravaganza</strong>
+                El juzgado notificará formalmente al salón para que comparezca. Una vez emplazado,
+                el salón tiene plazo para contestar la demanda.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <strong>Audiencia(s) y desahogo de pruebas</strong>
+                Se programarán audiencias. En juicio oral, el proceso es más rápido (audiencia
+                única en muchos casos). Lleva toda tu evidencia en original y copias.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <strong>Sentencia y ejecución</strong>
+                Si el juez falla a tu favor, el salón queda obligado a pagar. Si no lo hace
+                voluntariamente, el juzgado puede ordenar embargo de bienes.
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="section">
+        <h2>&#128194; Documentos que Debes Llevar</h2>
+        <p style="color:var(--muted); margin-bottom:1rem;">Lleva <strong>3 copias de todo</strong> (original + 2). El juzgado se queda con un juego completo.</p>
+
+        <h3>Identificación y personería</h3>
+        <ul class="checklist">
+            <li>INE / Pasaporte vigente (original + 2 copias)</li>
+            <li>Escrito de demanda (ver abajo) — 3 tantos impresos y firmados</li>
+        </ul>
+
+        <h3>Pruebas documentales</h3>
+        <ul class="checklist">
+            <li>Carta formal de reclamación enviada al salón (18 feb 2026)</li>
+            <li>Comprobante de compra Liverpool — $14,399 MXN</li>
+            <li>Pedido Liverpool #3330051311</li>
+            <li>Captura de pantalla de DJI confirmando sin reparación disponible</li>
+            <li>Captura del precio de reemplazo ($9,199 MXN)</li>
+            <li>Tarjeta de presentación del Salón Extravaganza</li>
+            <li>Capturas de WhatsApp bloqueado por el salón</li>
+            <li>Capturas de correos enviados a administracion@salonextravaganza.com sin respuesta</li>
+            <li>Especificaciones técnicas del láser RGB 10W Clase IV</li>
+        </ul>
+
+        <h3>Pruebas fotográficas (impresas)</h3>
+        <ul class="checklist">
+            <li>Fotos del sensor dañado (línea blanca + rojo + azul)</li>
+            <li>Fotos del láser sobre la pista de baile durante el evento</li>
+            <li>Fotos del láser apuntando a chambelanes y quinceañera</li>
+            <li>Fotos de la cámara DJI Osmo Pocket 3</li>
+        </ul>
+
+        <h3>Prueba en video</h3>
+        <ul class="checklist">
+            <li>USB con video del momento exacto del daño (paneo 360° — evidencia principal)</li>
+            <li>USB con video adicional del láser sobre invitados</li>
+        </ul>
+    </div>
+
+    <!-- ESCRITO DE DEMANDA -->
+    <div class="section">
+        <h2>&#128220; Escrito de Demanda Civil</h2>
+        <div class="alert alert-info">
+            <strong>Nota:</strong> Este escrito sigue los elementos básicos del Código de Procedimientos
+            Civiles del Estado de Guanajuato. Si el juzgado te indica ajustes de forma,
+            realízalos. El contenido jurídico es sólido. Lleva 3 copias firmadas de puño y letra.
+        </div>
+        <div style="margin-bottom:1rem;">
+            <button class="btn" onclick="imprimirCarta('carta-civil')">&#128438; Imprimir / Guardar PDF</button>
+            <button class="btn btn-secondary" onclick="descargarCarta('carta-civil','demanda-civil-salonextravaganza.txt')">&#8595; Descargar .txt</button>
+        </div>
+        <div class="carta-box" id="carta-civil">C. JUEZ CIVIL DE PARTIDO EN TURNO
+Poder Judicial del Estado de Guanajuato
+Juzgados Civiles de León, Guanajuato
+Carretera León–Cuerámaro km 5, Ciudad Industrial
+León de los Aldama, Guanajuato
+
+EXPEDIENTE: (Para uso del juzgado)
+
+ARTURO CRUZ, en mi propio nombre, con domicilio para oír y recibir
+notificaciones en León, Guanajuato, y señalando como número de contacto
+el WhatsApp 477-920-3776, ante usted con el debido respeto comparezco
+y expongo:
+
+Que por medio del presente escrito vengo a demandar en la vía
+ORDINARIA CIVIL (o JUICIO ORAL CIVIL, según califique este H. Juzgado)
+al SALÓN EXTRAVAGANZA, representado por su gerente o la persona que
+legalmente lo represente, con domicilio conocido en Blvd. Mariano
+Escobedo Ote. #4821, Cd. Satélite, C.P. 37407, León, Guanajuato
+(Tel. 477 255 1093; correo: administracion@salonextravaganza.com),
+reclamando las PRESTACIONES que se indican más adelante, con base
+en los siguientes:
+
+═══════════════════════════════════════════════════════════
+I. PRESTACIONES QUE SE RECLAMAN
+═══════════════════════════════════════════════════════════
+
+A) El pago de $30,699.00 MXN (TREINTA MIL SEISCIENTOS NOVENTA
+   Y NUEVE PESOS 00/100 M.N.) por concepto de:
+
+   1. Daño material — reemplazo equipo DJI Osmo Pocket 3     $  9,199.00
+   2. Daño emergente — afectación al servicio contratado      $  8,000.00
+   3. Gastos de transporte, documentación y gestión           $    500.00
+   4. Tiempo invertido en gestión del caso                    $  3,000.00
+   5. Daño moral (estrés, daño reputacional, pérdida
+      de cliente y material profesional irrecuperable)        $ 10,000.00
+   ────────────────────────────────────────────────────────
+   TOTAL RECLAMADO                                           $ 30,699.00
+
+B) El pago de intereses legales sobre el monto principal
+   a partir de la fecha del daño (14 febrero 2026).
+
+C) El pago de gastos y costas del juicio.
+
+═══════════════════════════════════════════════════════════
+II. HECHOS
+═══════════════════════════════════════════════════════════
+
+1. El día 14 de febrero de 2026, presté mis servicios profesionales
+   de video y fotografía en el evento "XV Años de Jade Ramos"
+   celebrado en el SALÓN EXTRAVAGANZA, sito en Blvd. Mariano Escobedo
+   Ote. #4821, Cd. Satélite, León, Guanajuato.
+
+2. El equipo láser operado por el establecimiento demandado fue
+   identificado como LÁSER RGB 10W CLASE IV, con la siguiente
+   potencia: Rojo 3,000 mW (638 nm) / Verde 2,800 mW (525 nm) /
+   Azul 4,200 mW (450 nm); potencia total de 10,000 mW (10 W).
+   La Clase IV es la categoría de MAYOR PELIGRO según la norma
+   internacional IEC 60825-1, superando entre 6 y 8 veces el
+   umbral mínimo de dicha clase (500 mW por canal).
+
+3. El equipo fue operado proyectando el texto "EXTRAVAGANZA"
+   con el haz cruzando la pista de baile a una altura de entre
+   1 y 3 metros, en zona de tránsito de asistentes, sin zona de
+   exclusión, sin señalización de peligro y sin operador
+   certificado en seguridad láser.
+
+4. Al realizar una grabación panorámica 360° desde el centro de
+   la pista, el haz del láser Clase IV impactó directamente el
+   sensor CMOS de mi cámara DJI Osmo Pocket 3 Creator Combo
+   (No. serie: 5WTZM9C002CVXL), causando daño permanente e
+   irreparable. El daño se manifiesta como una línea vertical
+   blanca y dos líneas horizontales (roja y azul) visibles en
+   toda grabación y fotografía realizada con el equipo.
+
+5. El patrón de daño descrito es técnicamente consistente y
+   exclusivo de un impacto de láser RGB multicanal sobre un
+   sensor CMOS con patrón Bayer: el canal rojo (638 nm, 3,000 mW)
+   quemó los fotodetectores del filtro rojo; el canal azul
+   (450 nm, 4,200 mW) quemó los del filtro azul. No existe otro
+   mecanismo de fallo conocido que produzca este patrón.
+
+6. El equipo fue adquirido en Liverpool el 21 de noviembre de
+   2024 por $14,399.00 MXN (Pedido #3330051311, Boleta
+   #039241121989536). DJI México confirmó que no existe servicio
+   de reparación disponible en México para este modelo.
+   El costo de reemplazo actual es de $9,199.00 MXN.
+
+7. El daño al equipo afectó adicionalmente el servicio de video
+   profesional contratado por $8,000.00 MXN para dicho evento,
+   comprometiendo la calidad total del material entregable y
+   causando daño a la reputación profesional del suscrito frente
+   al cliente contratante.
+
+8. El 18 de febrero de 2026, notifiqué formalmente al demandado
+   mediante carta entregada físicamente en el establecimiento y
+   enviada por correo electrónico a
+   administracion@salonextravaganza.com, otorgando un plazo de
+   10 días hábiles. El demandado NO respondió los correos y
+   procedió a BLOQUEAR el número de WhatsApp del suscrito, lo
+   que constituye negativa expresa a resolver el caso.
+
+9. Toda la evidencia fotográfica, de video y técnica consta en:
+   http://caso-laser.invitados.org/
+
+═══════════════════════════════════════════════════════════
+III. FUNDAMENTO DE DERECHO
+═══════════════════════════════════════════════════════════
+
+- Código Civil del Estado de Guanajuato, Arts. 1924-1933:
+  Responsabilidad civil por hechos ilícitos y obligación de
+  reparar el daño causado por actos u omisiones negligentes.
+
+- Art. 1924 CCEG: Quien cause daño a otro está obligado a
+  repararlo, excepto cuando demuestre que el daño se produjo
+  por culpa o negligencia inexcusable de la víctima.
+
+- Art. 1930 CCEG: Los que en ejercicio de una actividad
+  peligrosa causen daños, deben repararlos aunque no haya
+  culpa o negligencia, a menos que se demuestre que el daño
+  fue producido por culpa o negligencia inexcusable de la
+  víctima.
+
+  (La operación de un láser Clase IV es una actividad
+  peligrosa que genera responsabilidad objetiva.)
+
+- Norma IEC 60825-1 (Seguridad de Productos Láser): Un láser
+  Clase IV en zona de audiencia sin medidas de seguridad
+  requeridas constituye operación negligente e irresponsable.
+
+═══════════════════════════════════════════════════════════
+IV. PRUEBAS
+═══════════════════════════════════════════════════════════
+
+1. DOCUMENTAL: Comprobante de compra Liverpool y pedido
+   #3330051311 (acredita propiedad y valor del equipo).
+
+2. DOCUMENTAL: Carta formal de reclamación de fecha 18 de
+   febrero de 2026 y acuse de entrega (acredita notificación
+   y negativa del demandado).
+
+3. DOCUMENTAL: Capturas de WhatsApp bloqueado y correos sin
+   respuesta (acredita negativa a resolver).
+
+4. DOCUMENTAL: Confirmación DJI de sin reparación disponible
+   y precio de reemplazo actual.
+
+5. FOTOGRÁFICA: Imágenes del sensor dañado (línea blanca
+   vertical + líneas roja y azul horizontales).
+
+6. FOTOGRÁFICA: Imágenes del evento mostrando el láser
+   cruzando la pista a altura de personas.
+
+7. VIDEOGRÁFICA: Video del paneo 360° donde se registra el
+   momento exacto del impacto láser y el daño consecuente
+   al sensor, en una sola toma continua.
+
+8. TÉCNICA: Especificaciones del equipo LÁSER RGB 10W
+   (clasificación Clase IV, potencias por canal) que
+   demuestran la peligrosidad del equipo usado.
+
+9. PERICIAL (si fuera necesario): Se ofrece prueba pericial
+   en materia de equipos láser y daños a sensores CMOS,
+   para acreditar técnicamente el mecanismo de daño.
+
+10. SITIO WEB: http://caso-laser.invitados.org/ con toda
+    la evidencia del caso disponible públicamente.
+
+═══════════════════════════════════════════════════════════
+V. PETITORIO
+═══════════════════════════════════════════════════════════
+
+Por lo anteriormente expuesto, a este H. Juzgado atentamente
+solicito:
+
+PRIMERO: Tener por presentada la demanda en todos sus términos.
+
+SEGUNDO: Admitir las pruebas ofrecidas.
+
+TERCERO: Ordenar el emplazamiento del demandado SALÓN EXTRAVAGANZA
+al domicilio señalado: Blvd. Mariano Escobedo Ote. #4821,
+Cd. Satélite, C.P. 37407, León, Guanajuato.
+
+CUARTO: En su oportunidad, dictar sentencia condenando al
+demandado al pago de:
+
+   a) $30,699.00 MXN por todos los conceptos señalados.
+   b) Intereses legales desde la fecha del daño.
+   c) Gastos y costas del juicio.
+
+Protesto lo necesario.
+
+
+_________________________________
+Arturo Cruz (Parte actora)
+Producciones Foro 7
+WhatsApp: 477-920-3776
+León, Guanajuato, México
+
+Fecha: 26 de febrero de 2026
+
+ANEXOS:
+[1] Comprobante de compra Liverpool
+[2] Pedido #3330051311
+[3] Carta formal de reclamación (18 feb 2026)
+[4] Captura DJI sin reparación
+[5] Precio de reemplazo
+[6] Tarjeta Salón Extravaganza
+[7] Capturas WhatsApp bloqueado
+[8] Capturas correos sin respuesta
+[9] Fotos sensor dañado
+[10] Fotos láser sobre pista
+[11] USB con videos de evidencia
+[12] Especificaciones técnicas láser RGB 10W</div>
+    </div>
+
+    <!-- QUÉ ESPERAR -->
+    <div class="section">
+        <h2>&#128336; Qué Esperar del Proceso Civil</h2>
+        <table>
+            <tr><th>Etapa</th><th>Tiempo estimado</th><th>Descripción</th></tr>
+            <tr><td>Admisión de demanda</td><td>1–3 días hábiles</td><td>El juzgado revisa y admite (o previene para correcciones). Te asignan número de expediente.</td></tr>
+            <tr><td>Emplazamiento al salón</td><td>1–3 semanas</td><td>El actuario del juzgado va al domicilio del salón a notificar la demanda.</td></tr>
+            <tr><td>Contestación del salón</td><td>9 días después del emplazamiento (aprox.)</td><td>El salón tiene plazo para contestar. Si no contesta, puede declararse en rebeldía.</td></tr>
+            <tr><td>Audiencias / desahogo de pruebas</td><td>1–3 meses</td><td>Se presentan y desahogan las pruebas. En juicio oral se busca una audiencia única.</td></tr>
+            <tr><td>Sentencia</td><td>1–2 meses después</td><td>El juez dicta sentencia. Si es favorable, el salón queda obligado a pagar.</td></tr>
+            <tr><td>Ejecución (si no paga)</td><td>Según el caso</td><td>El juzgado puede ordenar embargo de bienes o cuentas del establecimiento.</td></tr>
+        </table>
+        <div class="alert alert-success" style="margin-top:1rem;">
+            <strong>Ventaja clave:</strong> El bloqueo de WhatsApp por parte del gerente y la falta de respuesta
+            a correos formales quedan registrados como evidencia de mala fe, lo que puede influir
+            positivamente en la decisión del juez e incluso en la condena en costas.
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Caso FORO7-2026-001 | Producciones Foro 7 — Arturo Cruz | <a href="index.html" style="color:#8ecae6;">Volver al caso principal</a></p>
+</footer>
+
+<script>
+function descargarCarta(id, nombre) {
+    var texto = document.getElementById(id).innerText;
+    var blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = nombre;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+function imprimirCarta(id) {
+    var contenido = document.getElementById(id).innerText;
+    var ventana = window.open('', '_blank');
+    ventana.document.write('<html><head><title>Demanda Civil</title>' +
+        '<style>body{font-family:Courier New,monospace;font-size:11pt;line-height:1.9;margin:2.5cm;white-space:pre-wrap;}' +
+        '@media print{body{margin:2cm;}}</style></head><body>' +
+        contenido.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</body></html>');
+    ventana.document.close(); ventana.focus(); ventana.print();
+}
+</script>
+</body>
+</html>
