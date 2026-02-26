@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denuncia Protección Civil — Caso Salón Extravaganza</title>
+    <style>
+        :root { --primary:#1a1a2e; --accent:#e94560; --bg:#f5f5f5; --card:#fff; --text:#333; --muted:#666; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+        header { background:#7b2d00; color:white; padding:2rem 1rem; text-align:center; }
+        header h1 { font-size:1.8rem; margin-bottom:0.5rem; }
+        header p { color:#ffccaa; font-size:0.95rem; }
+        .container { max-width:960px; margin:0 auto; padding:1rem; }
+        .alert { background:#fff3cd; border-left:4px solid #ffc107; padding:1rem 1.5rem; margin:1.5rem 0; border-radius:4px; }
+        .alert-danger { background:#f8d7da; border-left-color:#cc0000; }
+        .alert-success { background:#d4edda; border-left-color:#28a745; }
+        .alert-info { background:#d1ecf1; border-left-color:#17a2b8; }
+        .section { background:var(--card); border-radius:8px; padding:1.5rem; margin:1.5rem 0; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+        .section h2 { color:#7b2d00; border-bottom:2px solid #cc4400; padding-bottom:0.5rem; margin-bottom:1rem; font-size:1.3rem; }
+        .section h3 { color:#7b2d00; margin:1.25rem 0 0.5rem; font-size:1.05rem; }
+        table { width:100%; border-collapse:collapse; margin:1rem 0; }
+        th, td { padding:0.75rem; text-align:left; border-bottom:1px solid #eee; }
+        th { background:#7b2d00; color:white; font-weight:600; }
+        tr:hover { background:#f9f9f9; }
+        .info-card { background:#7b2d00; color:white; border-radius:8px; padding:1.5rem; margin:1rem 0; }
+        .info-card p { margin:0.4rem 0; }
+        .info-card a { color:#ffccaa; }
+        .step { display:flex; gap:1rem; margin:1rem 0; align-items:flex-start; }
+        .step-num { background:#cc4400; color:white; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem; flex-shrink:0; }
+        .step-body { flex:1; }
+        .step-body strong { display:block; font-size:1rem; margin-bottom:0.25rem; }
+        .checklist { list-style:none; padding:0; }
+        .checklist li { padding:0.5rem 0; border-bottom:1px solid #eee; display:flex; align-items:flex-start; gap:0.75rem; }
+        .checklist li::before { content:"\2610"; font-size:1.3rem; color:#cc4400; flex-shrink:0; }
+        .checklist li:last-child { border-bottom:none; }
+        .carta-box { background:#fff; border:1px solid #ccc; border-radius:8px; padding:2rem; margin:1rem 0; font-family:'Courier New',monospace; font-size:0.88rem; line-height:1.8; white-space:pre-wrap; color:#222; }
+        .btn { display:inline-flex; align-items:center; gap:0.5rem; background:#cc4400; color:white; border:none; padding:0.75rem 1.5rem; border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer; margin:0.5rem; text-decoration:none; }
+        .btn:hover { opacity:0.9; }
+        .btn-secondary { background:#1a1a2e; }
+        .nav-back { display:inline-flex; align-items:center; gap:0.5rem; color:#cc4400; text-decoration:none; margin-bottom:1rem; font-size:0.95rem; }
+        .nav-back:hover { text-decoration:underline; }
+        .badge { display:inline-block; padding:0.25rem 0.75rem; border-radius:20px; font-size:0.85rem; font-weight:600; }
+        .badge-danger { background:#f8d7da; color:#721c24; }
+        .highlight-box { background:#fff3cd; border:2px solid #ffc107; border-radius:8px; padding:1.25rem; margin:1rem 0; }
+        .laser-class { background:#2d0000; color:white; border-radius:8px; padding:1.25rem; margin:1rem 0; text-align:center; }
+        .laser-class .class-badge { font-size:2rem; font-weight:bold; color:#ff4444; }
+        footer { background:#1a1a2e; color:#999; text-align:center; padding:1.5rem; margin-top:2rem; font-size:0.85rem; }
+        @media(max-width:600px) { header h1 { font-size:1.3rem; } .container { padding:0.5rem; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>&#9888; Denuncia ante Protección Civil</h1>
+    <p>Uso de Láser Clase IV sin medidas de seguridad — Salón Extravaganza, León, Gto.</p>
+    <p style="margin-top:0.5rem;"><span class="badge badge-danger">Esta denuncia es independiente de la reclamación económica</span></p>
+</header>
+
+<div class="container">
+    <a href="index.html" class="nav-back">&#8592; Volver al caso principal</a>
+
+    <div class="alert alert-danger">
+        <strong>&#9888; Por qué es importante esta denuncia:</strong> El Salón Extravaganza operó un
+        <strong>LÁSER RGB 10W Clase IV</strong> (la categoría de mayor peligro según IEC 60825-1)
+        cruzando la pista de baile a altura de personas, sin zona de exclusión, sin señalización
+        y sin operador certificado. Esto no es solo un daño a propiedad: es un <strong>riesgo real
+        de ceguera permanente</strong> para cualquier asistente que hubiera sido alcanzado por el haz.
+        Esta denuncia puede resultar en una <strong>inspección y suspensión del permiso del salón</strong>.
+    </div>
+
+    <div class="laser-class">
+        <div class="class-badge">CLASE IV</div>
+        <p style="margin-top:0.5rem;">Láser RGB 10W &mdash; 3,000 a 4,200 mW por canal</p>
+        <p style="color:#ffaaaa; font-size:0.9rem; margin-top:0.25rem;">
+            Puede causar ceguera instantánea e irreversible con una exposición directa momentánea.
+            Requiere controles especiales de seguridad por norma IEC 60825-1.
+        </p>
+    </div>
+
+    <!-- INFO INSTITUCIÓN -->
+    <div class="section">
+        <h2>&#127968; Dónde ir: Dirección General de Protección Civil — León</h2>
+        <div class="info-card">
+            <p><strong>&#128205; Dirección:</strong> Calle 16 de Septiembre No. 738, Col. El Duraznal, León, Guanajuato. C.P. 37260</p>
+            <p><strong>&#128222; Teléfono:</strong> 477 763 59 16</p>
+            <p><strong>&#128222; Conmutador municipal:</strong> (477) 788-00-00 Ext. 1140</p>
+            <p><strong>&#128231; Correo del Director:</strong> crescencio.sanchez@leon.gob.mx</p>
+            <p><strong>&#128336; Horario:</strong> Lunes a viernes, 9:00 a 15:00 horas (confirmar por teléfono)</p>
+            <p><strong>&#127760; Portal:</strong> <a href="https://www.leon.gob.mx/seguridad/direccion-general.php?id=27" target="_blank">leon.gob.mx — Protección Civil</a></p>
+        </div>
+        <div class="alert alert-info" style="margin-top:1rem;">
+            <strong>También puedes denunciar ante:</strong> Coordinación Estatal de Protección Civil de Guanajuato
+            (nivel estatal), en caso de que la respuesta municipal no sea satisfactoria.
+            Dirección: Blvd. Adolfo López Mateos 800, Irapuato (sede estatal).
+            Tel: 01 462 624 60 51.
+        </div>
+    </div>
+
+    <!-- PASO A PASO -->
+    <div class="section">
+        <h2>&#128203; Paso a Paso</h2>
+
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <strong>Llama antes de ir (477 763 59 16)</strong>
+                Confirma el horario e indica que vas a presentar una denuncia por operación irregular
+                de equipo láser de alta potencia (Clase IV) en un salón de eventos. Pregunta con
+                quién debes hablar específicamente.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <strong>Pide el área de "Inspección" o "Verificación"</strong>
+                Al llegar, indica que vienes a presentar una denuncia por uso indebido de equipo
+                láser de alta potencia en un establecimiento abierto al público.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <strong>Presenta tu denuncia por escrito</strong>
+                Entrega la carta de denuncia (ver más abajo) junto con las evidencias.
+                Pide que te sellen una copia como acuse de recibo.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <strong>Señala el riesgo colectivo, no solo el daño a tu equipo</strong>
+                Enfatiza que el láser apuntaba directamente a la cara de menores de edad
+                (chambelanes), a la quinceañera y a los invitados, y que el daño a tu cámara
+                es la prueba objetiva y registrada de que el haz cruzaba la zona de audiencia.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <strong>Solicita inspección del establecimiento</strong>
+                Pide explícitamente que se realice una inspección al Salón Extravaganza
+                para verificar que el equipo láser cumple con las normas de seguridad
+                y que cuentan con los permisos y capacitación requeridos.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <strong>Guarda tu acuse y número de expediente</strong>
+                Exige acuse de recibo sellado. Si te dan número de expediente, anótalo.
+                Este registro es útil para tu demanda civil posterior.
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="section">
+        <h2>&#128194; Documentos que Debes Llevar</h2>
+        <ul class="checklist">
+            <li>INE / Pasaporte vigente (original + 1 copia)</li>
+            <li>Carta de denuncia (la de abajo, impresa en 2 copias)</li>
+            <li>Tarjeta de presentación del Salón Extravaganza</li>
+            <li>Impresión de capturas del video donde se ve el láser cruzando la pista</li>
+            <li>Impresión de capturas donde el láser apunta a chambelanes y quinceañera</li>
+            <li>Foto del sensor dañado (prueba objetiva de que el haz cruzó la zona de personas)</li>
+            <li>Especificaciones técnicas del láser RGB 10W (las puedes imprimir desde el sitio)</li>
+            <li>USB con el video del momento exacto del daño (muy recomendado)</li>
+            <li>URL del sitio: <strong>caso-laser.invitados.org</strong></li>
+        </ul>
+    </div>
+
+    <!-- ARGUMENTOS CLAVE -->
+    <div class="section">
+        <h2>&#9888; Argumentos Clave para Tu Denuncia</h2>
+        <table>
+            <tr><th>Violación</th><th>Evidencia que tienes</th></tr>
+            <tr>
+                <td>Láser Clase IV operado en zona de audiencia (IEC 60825-1)</td>
+                <td>Video del momento del daño; fotos del láser sobre la pista</td>
+            </tr>
+            <tr>
+                <td>Sin zona de exclusión ni señalización de peligro</td>
+                <td>Imágenes panorámicas del salón sin ninguna señalización visible</td>
+            </tr>
+            <tr>
+                <td>Haz dirigido a menores de edad (chambelanes) y quinceañera</td>
+                <td>Capturas de video mostrando el láser a nivel de cara</td>
+            </tr>
+            <tr>
+                <td>Daño comprobado a equipo: evidencia física del impacto del haz</td>
+                <td>Sensor CMOS quemado con patrón RGB característico</td>
+            </tr>
+            <tr>
+                <td>Operación sin certificación en seguridad láser</td>
+                <td>El propio sistema (láser de entretenimiento de importación) sin documentación</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- CARTA DENUNCIA -->
+    <div class="section">
+        <h2>&#128220; Denuncia Escrita para Protección Civil</h2>
+        <div style="margin-bottom:1rem;">
+            <button class="btn" onclick="imprimirCarta('carta-pc')">&#128438; Imprimir / Guardar PDF</button>
+            <button class="btn btn-secondary" onclick="descargarCarta('carta-pc','denuncia-proteccion-civil-salonextravaganza.txt')">&#8595; Descargar .txt</button>
+        </div>
+        <div class="carta-box" id="carta-pc">León, Guanajuato, a 26 de febrero de 2026
+
+LIC. CRESCENCIO SÁNCHEZ ABUNDIZ
+Director General de Protección Civil
+Municipio de León, Guanajuato
+Calle 16 de Septiembre No. 738, Col. El Duraznal
+León, Guanajuato. C.P. 37260
+
+ASUNTO: DENUNCIA POR USO IRREGULAR DE LÁSER CLASE IV EN ESPACIO PÚBLICO
+         SIN MEDIDAS DE SEGURIDAD — RIESGO A LA SALUD DE LOS ASISTENTES
+
+C. Director:
+
+Por medio del presente escrito, yo, ARTURO CRUZ, representante de
+Producciones Foro 7, con domicilio en León, Guanajuato (WhatsApp:
+477-920-3776), presento ante esta Dirección General DENUNCIA FORMAL
+contra el establecimiento SALÓN EXTRAVAGANZA (Blvd. Mariano Escobedo
+Ote. #4821, Cd. Satélite, 37407, León, Gto.; Tel. 477 255 1093) por
+la operación de equipo láser de alta potencia Clase IV en espacios de
+acceso al público sin las medidas de seguridad requeridas, lo que
+representa un riesgo grave a la integridad física y visual de los
+asistentes a sus eventos, con base en los siguientes:
+
+HECHOS:
+
+1. El día 14 de febrero de 2026, durante la celebración de "XV Años de
+   Jade Ramos" en el Salón Extravaganza, León, Guanajuato, el personal
+   del establecimiento operó un equipo LÁSER RGB 10W CLASE IV con las
+   siguientes características técnicas:
+
+   - Potencia: Rojo 3,000 mW (638 nm) / Verde 2,800 mW (525 nm) /
+     Azul 4,200 mW (450 nm) / TOTAL: 10,000 mW (10 W)
+   - Galvanómetro de escaneo: 30,000 PPS (30 KPPS)
+   - Clasificación: CLASE IV según norma IEC 60825-1
+     (la categoría de MAYOR PELIGRO: puede causar ceguera instantánea
+     e irreversible con una sola exposición directa momentánea)
+
+2. El equipo fue operado proyectando el texto "EXTRAVAGANZA" con el haz
+   cruzando la pista de baile a una altura de entre 1 y 3 metros, en
+   la zona de tránsito de asistentes (incluyendo menores de edad) y
+   personal de servicios contratado para el evento, SIN:
+   - Zona de exclusión delimitada o señalizada
+   - Señalización de advertencia de peligro láser
+   - Operador certificado en seguridad láser
+   - Controles que impidan al haz alcanzar la zona de audiencia
+
+3. El haz del láser impactó directamente el sensor CMOS de mi cámara
+   profesional DJI Osmo Pocket 3 (No. serie: 5WTZM9C002CVXL),
+   causando daño permanente e irreparable al sensor. Este daño es la
+   EVIDENCIA OBJETIVA Y REGISTRADA de que el haz láser Clase IV
+   cruzaba efectivamente la zona donde transitaban personas.
+
+4. Las fotografías y videos del evento documentan que el láser apuntaba
+   directamente a la CARA Y CUERPO DE MENORES DE EDAD (chambelanes) y
+   a la quinceañera durante el vals:
+   - Chambelanes arrodillados con el láser a nivel de su cara
+   - La quinceañera siendo levantada directamente frente al haz
+   - Invitados bailando con el segundo láser circular impactándoles
+     en cara y cuerpo
+
+5. Toda la evidencia fotográfica y de video está disponible públicamente
+   en: http://caso-laser.invitados.org/
+
+FUNDAMENTO:
+
+La operación de láseres Clase IV (>500 mW) según la norma internacional
+IEC 60825-1 exige obligatoriamente: operador certificado, zona de
+exclusión, señalización de peligro y controles que garanticen que el haz
+no alcance la zona de audiencia. El Reglamento de Protección Civil
+del Municipio de León establece la obligación de los establecimientos
+de garantizar condiciones de seguridad para sus usuarios.
+
+SOLICITUD:
+
+Por lo anterior, solicito respetuosamente a esta Dirección General:
+
+1. Se realice una INSPECCIÓN al Salón Extravaganza (Blvd. Mariano
+   Escobedo Ote. #4821, Cd. Satélite, León, Gto.) para verificar
+   que el equipo láser en uso cumple con normas de seguridad y
+   que el personal cuenta con la capacitación requerida.
+
+2. Se verifiquen los permisos de operación del establecimiento en
+   relación con el uso de equipos láser de alta potencia.
+
+3. En caso de comprobarse irregularidades, se apliquen las medidas
+   correctivas y sanciones correspondientes para prevenir que este
+   riesgo continúe afectando a los asistentes a futuros eventos.
+
+Se adjuntan como evidencia:
+- Especificaciones técnicas del equipo láser (Clase IV, 10W RGB)
+- Fotografías del sensor de cámara dañado por impacto láser
+- Capturas de video mostrando el láser apuntando a menores de edad
+- Carta formal de reclamación enviada al salón (18 feb 2026)
+- Toda la evidencia en: http://caso-laser.invitados.org/
+
+Protesto lo necesario.
+
+
+_________________________________
+Arturo Cruz
+Producciones Foro 7
+WhatsApp: 477-920-3776
+León, Guanajuato, México
+
+Fecha: 26 de febrero de 2026</div>
+    </div>
+
+    <!-- QUÉ ESPERAR -->
+    <div class="section">
+        <h2>&#128336; Qué Esperar</h2>
+        <table>
+            <tr><th>Acción de Protección Civil</th><th>Posible resultado para el salón</th></tr>
+            <tr><td>Inspección al establecimiento</td><td>Verificación de equipo, permisos y capacitación del personal</td></tr>
+            <tr><td>Infracción por operar láser Clase IV sin medidas de seguridad</td><td>Multa administrativa</td></tr>
+            <tr><td>Incumplimiento grave o reincidencia</td><td>Suspensión del permiso de operación</td></tr>
+        </table>
+        <div class="alert" style="margin-top:1rem;">
+            <strong>Importante:</strong> Esta denuncia tiene valor <strong>independiente</strong> de tu reclamación
+            económica. Aunque el salón pague el daño a tu cámara, esta denuncia protege a los futuros
+            asistentes. Además, una inspección o sanción de Protección Civil fortalece
+            tu expediente si llegas a la demanda civil.
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Caso FORO7-2026-001 | Producciones Foro 7 — Arturo Cruz | <a href="index.html" style="color:#8ecae6;">Volver al caso principal</a></p>
+</footer>
+
+<script>
+function descargarCarta(id, nombre) {
+    var texto = document.getElementById(id).innerText;
+    var blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = nombre;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+function imprimirCarta(id) {
+    var contenido = document.getElementById(id).innerText;
+    var ventana = window.open('', '_blank');
+    ventana.document.write('<html><head><title>Denuncia Protección Civil</title>' +
+        '<style>body{font-family:Courier New,monospace;font-size:12pt;line-height:1.8;margin:2.5cm;white-space:pre-wrap;}' +
+        '@media print{body{margin:2cm;}}</style></head><body>' +
+        contenido.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</body></html>');
+    ventana.document.close(); ventana.focus(); ventana.print();
+}
+</script>
+</body>
+</html>
