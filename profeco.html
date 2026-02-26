@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queja PROFECO — Caso Salón Extravaganza</title>
+    <style>
+        :root { --primary:#1a1a2e; --accent:#e94560; --bg:#f5f5f5; --card:#fff; --text:#333; --muted:#666; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+        header { background:var(--primary); color:white; padding:2rem 1rem; text-align:center; }
+        header h1 { font-size:1.8rem; margin-bottom:0.5rem; }
+        header p { color:#ccc; font-size:0.95rem; }
+        .container { max-width:960px; margin:0 auto; padding:1rem; }
+        .alert { background:#fff3cd; border-left:4px solid #ffc107; padding:1rem 1.5rem; margin:1.5rem 0; border-radius:4px; }
+        .alert-danger { background:#f8d7da; border-left-color:var(--accent); }
+        .alert-success { background:#d4edda; border-left-color:#28a745; }
+        .alert-info { background:#d1ecf1; border-left-color:#17a2b8; }
+        .section { background:var(--card); border-radius:8px; padding:1.5rem; margin:1.5rem 0; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+        .section h2 { color:var(--primary); border-bottom:2px solid var(--accent); padding-bottom:0.5rem; margin-bottom:1rem; font-size:1.3rem; }
+        .section h3 { color:var(--primary); margin:1.25rem 0 0.5rem; font-size:1.05rem; }
+        table { width:100%; border-collapse:collapse; margin:1rem 0; }
+        th, td { padding:0.75rem; text-align:left; border-bottom:1px solid #eee; }
+        th { background:var(--primary); color:white; font-weight:600; }
+        tr:hover { background:#f9f9f9; }
+        .info-card { background:var(--primary); color:white; border-radius:8px; padding:1.5rem; margin:1rem 0; }
+        .info-card p { margin:0.4rem 0; }
+        .info-card a { color:#8ecae6; }
+        .step { display:flex; gap:1rem; margin:1rem 0; align-items:flex-start; }
+        .step-num { background:var(--accent); color:white; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem; flex-shrink:0; }
+        .step-body { flex:1; }
+        .step-body strong { display:block; font-size:1rem; margin-bottom:0.25rem; }
+        .checklist { list-style:none; padding:0; }
+        .checklist li { padding:0.5rem 0; border-bottom:1px solid #eee; display:flex; align-items:flex-start; gap:0.75rem; }
+        .checklist li::before { content:"\2610"; font-size:1.3rem; color:var(--accent); flex-shrink:0; }
+        .checklist li:last-child { border-bottom:none; }
+        .carta-box { background:#fff; border:1px solid #ccc; border-radius:8px; padding:2rem; margin:1rem 0; font-family:'Courier New',monospace; font-size:0.88rem; line-height:1.8; white-space:pre-wrap; color:#222; }
+        .btn { display:inline-flex; align-items:center; gap:0.5rem; background:var(--accent); color:white; border:none; padding:0.75rem 1.5rem; border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer; margin:0.5rem; text-decoration:none; }
+        .btn:hover { opacity:0.9; }
+        .btn-secondary { background:var(--primary); }
+        .btn-green { background:#28a745; }
+        .nav-back { display:inline-flex; align-items:center; gap:0.5rem; color:#8ecae6; text-decoration:none; margin-bottom:1rem; font-size:0.95rem; }
+        .nav-back:hover { text-decoration:underline; }
+        .badge { display:inline-block; padding:0.25rem 0.75rem; border-radius:20px; font-size:0.85rem; font-weight:600; }
+        .badge-warning { background:#fff3cd; color:#856404; }
+        .badge-danger { background:#f8d7da; color:#721c24; }
+        .highlight-box { background:#fff3cd; border:2px solid #ffc107; border-radius:8px; padding:1.25rem; margin:1rem 0; }
+        footer { background:var(--primary); color:#999; text-align:center; padding:1.5rem; margin-top:2rem; font-size:0.85rem; }
+        @media(max-width:600px) { header h1 { font-size:1.3rem; } .container { padding:0.5rem; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>&#9878; Queja ante PROFECO</h1>
+    <p>Caso: Daño a equipo profesional por láser — Salón Extravaganza, León, Gto.</p>
+    <p style="margin-top:0.5rem;"><span class="badge badge-danger">Salón bloqueó WhatsApp y no respondió correos</span></p>
+</header>
+
+<div class="container">
+    <a href="index.html" class="nav-back">&#8592; Volver al caso principal</a>
+
+    <div class="alert alert-danger">
+        <strong>Situación actual:</strong> El Salón Extravaganza bloqueó el número de WhatsApp del afectado
+        y no respondió ningún correo electrónico enviado a administracion@salonextravaganza.com.
+        El plazo de 10 días hábiles vence el <strong>4 de marzo de 2026</strong>. A partir de esa fecha
+        (o antes, si lo decides) puedes presentar esta queja. <strong>PROFECO es gratuito y es el primer paso recomendado.</strong>
+    </div>
+
+    <!-- INFO INSTITUCIÓN -->
+    <div class="section">
+        <h2>&#127968; Dónde ir: Oficina PROFECO Bajío — León</h2>
+        <div class="info-card">
+            <p><strong>&#128205; Dirección:</strong> Plaza Galerías Las Torres, Blvd. Juan Alonso de Torres Pte. 1315,
+            Col. Jardines de Los Naranjos, León, Guanajuato. C.P. 37200</p>
+            <p><strong>&#128222; Teléfonos:</strong> 477 716 6044 &nbsp;|&nbsp; 477 716 5968 &nbsp;|&nbsp; 477 716 6808</p>
+            <p><strong>&#128231; Correo:</strong> odeco.bajio@profeco.gob.mx</p>
+            <p><strong>&#128336; Horario:</strong> Lunes a viernes, 9:00 a 15:30 horas (no abre sábados ni domingos)</p>
+            <p><strong>&#127758; También puedes quejarte en línea:</strong> <a href="https://www.gob.mx/profeco" target="_blank">gob.mx/profeco</a> (sección "Quéjate")</p>
+        </div>
+        <div class="alert alert-info" style="margin-top:1rem;">
+            <strong>Consejo:</strong> Llama primero al 477 716 6044 para confirmar el horario y preguntar
+            si requieres cita previa. También puedes ir directo a la oficina durante el horario de atención.
+        </div>
+    </div>
+
+    <!-- PASO A PASO -->
+    <div class="section">
+        <h2>&#128203; Paso a Paso: Qué Hacer al Llegar</h2>
+
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <strong>Llega con tus documentos organizados</strong>
+                Trae todo en una carpeta, en orden. Lleva copias de todo (mínimo 2 juegos).
+                El original siempre quédate con él; entrega copias.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <strong>Pide el módulo de "quejas" o "captura de quejas"</strong>
+                Al entrar, indica que vienes a presentar una queja formal contra un establecimiento
+                por daño a propiedad. Te dirigirán con un asesor.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <strong>El asesor llenará un formato de queja contigo</strong>
+                Te pedirán datos del establecimiento (nombre, dirección, teléfono) y los tuyos.
+                Describe el problema claramente: "<em>El equipo láser del salón dañó mi cámara profesional
+                durante un evento. Se les notificó formalmente y bloquearon mi WhatsApp sin responder.</em>"
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <strong>Entrega copias de toda tu evidencia</strong>
+                Entrega: carta formal, comprobante de compra, fotos del daño, capturas de WhatsApp
+                (que muestren el bloqueo), capturas de correos enviados. Guarda tus originales.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <strong>PROFECO citará al salón a una audiencia de conciliación</strong>
+                Notificarán al Salón Extravaganza para que comparezca. Si el salón no se presenta
+                o no llegan a acuerdo, PROFECO puede imponer una multa y continuar el procedimiento.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <strong>Guarda tu número de folio de queja</strong>
+                Al registrar tu queja recibirás un número de folio. Consérvalo. Con él puedes
+                dar seguimiento por teléfono o en línea.
+            </div>
+        </div>
+
+        <div class="alert alert-success" style="margin-top:1rem;">
+            <strong>¿Puedes ir antes del 4 de marzo?</strong> Sí. No tienes que esperar a que venza el plazo.
+            Dado que el salón ya bloqueó el WhatsApp y no respondió correos, puedes presentar la queja
+            desde ahora con esa evidencia de falta de respuesta.
+        </div>
+    </div>
+
+    <!-- CHECKLIST DOCUMENTOS -->
+    <div class="section">
+        <h2>&#128194; Documentos que Debes Llevar</h2>
+        <p style="color:var(--muted); margin-bottom:1rem;">Lleva <strong>originales + 2 copias</strong> de cada documento. Los originales nunca los entregues.</p>
+
+        <h3>Identificación</h3>
+        <ul class="checklist">
+            <li>INE / Pasaporte vigente (original + 1 copia)</li>
+        </ul>
+
+        <h3>Documentos del caso (imprimir desde caso-laser.invitados.org)</h3>
+        <ul class="checklist">
+            <li>Carta formal de reclamación enviada al salón el 18 de febrero de 2026 (2 copias)</li>
+            <li>Captura de pantalla del correo enviado a administracion@salonextravaganza.com (sin respuesta)</li>
+            <li>Captura de pantalla de WhatsApp bloqueado por el salón</li>
+            <li>Tarjeta de presentación del Salón Extravaganza</li>
+        </ul>
+
+        <h3>Evidencia del equipo dañado</h3>
+        <ul class="checklist">
+            <li>Comprobante de compra Liverpool — $14,399 MXN (21 nov 2024)</li>
+            <li>Comprobante de pedido Liverpool #3330051311</li>
+            <li>Foto del sensor dañado (línea vertical blanca + líneas roja y azul)</li>
+            <li>Foto de la cámara DJI Osmo Pocket 3 física</li>
+            <li>Captura de la pantalla DJI mostrando "sin cobertura de reparación"</li>
+            <li>Captura del precio de reemplazo actual ($9,199 MXN en Liverpool)</li>
+        </ul>
+
+        <h3>Evidencia del incidente</h3>
+        <ul class="checklist">
+            <li>Impresión de capturas del video (donde se ve el láser sobre la pista)</li>
+            <li>Impresión de captura del momento del daño (antes/después en el sensor)</li>
+            <li>USB o teléfono con el video del momento exacto del daño (opcional pero recomendado)</li>
+            <li>URL del sitio de evidencias: <strong>caso-laser.invitados.org</strong> (mencionarlo al asesor)</li>
+        </ul>
+
+        <h3>Información del establecimiento</h3>
+        <ul class="checklist">
+            <li>Nombre: Salón Extravaganza</li>
+            <li>Dirección: Blvd. Mariano Escobedo Ote. #4821, Cd. Satélite, 37407, León, Gto.</li>
+            <li>Teléfono: 477 255 1093</li>
+            <li>Correo: administracion@salonextravaganza.com</li>
+            <li>Contacto: Fernanda Escobedo (Asistente Administrativo)</li>
+        </ul>
+    </div>
+
+    <!-- QUÉ DECIR -->
+    <div class="section">
+        <h2>&#128172; Qué Decir al Asesor (Resumen del Caso)</h2>
+        <div class="highlight-box">
+            <p><em>"El 14 de febrero de 2026 asistí como camarógrafo contratado a una quinceañera en el
+            Salón Extravaganza en León. El salón operó un láser RGB de 10 watts (Clase IV, la más peligrosa
+            según norma IEC 60825-1) cruzando la pista de baile a altura de personas, sin señalización ni
+            medidas de seguridad. El láser impactó el sensor de mi cámara DJI Osmo Pocket 3, causando
+            daño permanente e irreparable. DJI confirmó que no hay reparación disponible en México para
+            este modelo.</em></p>
+            <p style="margin-top:0.75rem;"><em>Le notifiqué formalmente al salón el 18 de febrero de 2026
+            por correo y entrega física. No obtuve respuesta a los correos, y el gerente me bloqueó
+            en WhatsApp. Solicito que PROFECO intervenga para que el salón me pague $17,199 pesos
+            por el reemplazo de la cámara ($9,199) y la afectación al servicio de video ($8,000)."</em></p>
+        </div>
+    </div>
+
+    <!-- CARTA PARA PROFECO -->
+    <div class="section">
+        <h2>&#128220; Carta para Presentar ante PROFECO</h2>
+        <p style="color:var(--muted); margin-bottom:1rem;">Imprime esta carta y llévala. También la puedes adjuntar si presentas la queja en línea.</p>
+        <div style="margin-bottom:1rem;">
+            <button class="btn" onclick="imprimirCarta('carta-profeco')">&#128438; Imprimir / Guardar PDF</button>
+            <button class="btn btn-secondary" onclick="descargarCarta('carta-profeco','queja-profeco-salonextravaganza.txt')">&#8595; Descargar .txt</button>
+        </div>
+        <div class="carta-box" id="carta-profeco">León, Guanajuato, a 26 de febrero de 2026
+
+C. DELEGADO(A) REGIONAL
+Procuraduría Federal del Consumidor (PROFECO) — Delegación Bajío
+Plaza Galerías Las Torres, Blvd. Juan Alonso de Torres Pte. 1315
+Col. Jardines de Los Naranjos, León, Guanajuato. C.P. 37200
+
+ASUNTO: QUEJA FORMAL POR DAÑO A PROPIEDAD CAUSADO POR PROVEEDOR
+         Contra: Salón Extravaganza, León, Guanajuato
+
+C. Delegado(a):
+
+Por medio del presente escrito, yo, ARTURO CRUZ, con domicilio en León,
+Guanajuato, y WhatsApp de contacto 477-920-3776, en mi carácter de
+consumidor afectado, presento ante esta H. Procuraduría QUEJA FORMAL
+contra el establecimiento denominado SALÓN EXTRAVAGANZA, con domicilio
+en Blvd. Mariano Escobedo Ote. #4821, Cd. Satélite, 37407, León,
+Guanajuato (Tel. 477 255 1093), con base en los siguientes:
+
+HECHOS:
+
+1. El día 14 de febrero de 2026, prestando mis servicios como camarógrafo
+   profesional en el evento "XV Años de Jade Ramos" celebrado en el
+   Salón Extravaganza, el equipo láser operado por dicho establecimiento
+   —identificado como LÁSER RGB 10W Clase IV (Rojo 3,000 mW / Verde 2,800
+   mW / Azul 4,200 mW)— dañó de forma permanente e irreparable el sensor
+   CMOS de mi cámara DJI Osmo Pocket 3 Creator Combo (No. serie:
+   5WTZM9C002CVXL), equipo adquirido en Liverpool el 21 de noviembre de
+   2024 por $14,399.00 MXN (Pedido #3330051311).
+
+2. El equipo láser (Clase IV según norma IEC 60825-1, la categoría de mayor
+   peligro) fue operado cruzando la pista de baile a una altura de entre 1
+   y 3 metros, en zona de tránsito de asistentes, sin señalización, sin
+   zona de exclusión y sin operador certificado en seguridad láser.
+
+3. El daño se manifiesta como línea vertical blanca permanente y dos líneas
+   horizontales (roja y azul) que aparecen en toda grabación y fotografía
+   realizada con el equipo, haciéndolo inservible para uso profesional.
+   DJI confirmó que no existe reparación de sensor disponible en México
+   para este modelo.
+
+4. El 18 de febrero de 2026, notifiqué formalmente al Salón Extravaganza
+   mediante carta entregada físicamente en el establecimiento y enviada
+   por correo electrónico a administracion@salonextravaganza.com,
+   otorgando un plazo de 10 días hábiles (vencimiento: 4 marzo 2026).
+
+5. El proveedor NO respondió ninguno de los correos enviados y, además,
+   procedió a BLOQUEAR mi número de WhatsApp, evidenciando su negativa
+   a resolver el caso de buena fe.
+
+FUNDAMENTO LEGAL:
+
+Ley Federal de Protección al Consumidor:
+- Art. 1°: Protección de la vida, salud y seguridad del consumidor.
+- Art. 7°: Obligación del proveedor de responder por la calidad e
+  idoneidad del servicio prestado.
+- Art. 92 Bis: Responsabilidad del proveedor por daños causados al
+  consumidor por deficiencia en los servicios ofrecidos.
+
+PRETENSIONES:
+
+Solicito que esta H. Procuraduría:
+
+1. Intervenga como conciliadora para que el Salón Extravaganza pague
+   la cantidad de $17,199.00 MXN (monto mínimo de acuerdo voluntario),
+   desglosado como sigue:
+
+   Concepto                                     Monto
+   ──────────────────────────────────────────────────────
+   Reemplazo DJI Osmo Pocket 3              $  9,199.00
+   Afectación al servicio de video          $  8,000.00
+   ──────────────────────────────────────────────────────
+   TOTAL                                    $ 17,199.00 MXN
+
+2. En caso de no llegar a acuerdo, se inicien los procedimientos
+   administrativos y/o de sanción que correspondan conforme a la LFPC.
+
+Se adjunta como evidencia:
+- Carta formal de reclamación (18 feb 2026)
+- Comprobante de compra y pedido Liverpool
+- Fotografías del sensor dañado
+- Capturas de WhatsApp bloqueado y correos sin respuesta
+- Fotografías del láser operando sobre la pista durante el evento
+- Evidencia completa en: http://caso-laser.invitados.org/
+
+Protesto lo necesario.
+
+
+_________________________________
+Arturo Cruz
+Producciones Foro 7
+WhatsApp: 477-920-3776
+León, Guanajuato, México
+
+Fecha: 26 de febrero de 2026</div>
+    </div>
+
+    <!-- QUÉ ESPERAR -->
+    <div class="section">
+        <h2>&#128336; Qué Esperar Después</h2>
+        <table>
+            <tr><th>Etapa</th><th>Tiempo aproximado</th><th>Qué pasa</th></tr>
+            <tr><td>Registro de queja</td><td>El mismo día</td><td>Recibes número de folio. PROFECO notifica al salón.</td></tr>
+            <tr><td>Audiencia de conciliación</td><td>2–4 semanas</td><td>PROFECO cita a ambas partes. Si el salón no va, se levanta acta.</td></tr>
+            <tr><td>Acuerdo o escalación</td><td>En la audiencia</td><td>Si hay acuerdo, se firma convenio con valor legal. Si no, PROFECO puede imponer multa de hasta $6 millones MXN al salón.</td></tr>
+            <tr><td>Seguimiento</td><td>Según el caso</td><td>Si el salón incumple el convenio, PROFECO puede ejecutarlo.</td></tr>
+        </table>
+        <div class="alert alert-info" style="margin-top:1rem;">
+            <strong>Dato importante:</strong> Si el salón no se presenta a la audiencia de PROFECO,
+            eso queda registrado y debilita su posición en cualquier demanda civil posterior.
+            Presentar la queja en PROFECO <strong>no cierra la opción de demandar civilmente</strong>.
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Caso FORO7-2026-001 | Producciones Foro 7 — Arturo Cruz | <a href="index.html" style="color:#8ecae6;">Volver al caso principal</a></p>
+</footer>
+
+<script>
+function descargarCarta(id, nombre) {
+    var texto = document.getElementById(id).innerText;
+    var blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = nombre;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+function imprimirCarta(id) {
+    var contenido = document.getElementById(id).innerText;
+    var ventana = window.open('', '_blank');
+    ventana.document.write('<html><head><title>Carta PROFECO</title>' +
+        '<style>body{font-family:Courier New,monospace;font-size:12pt;line-height:1.8;margin:2.5cm;white-space:pre-wrap;}' +
+        '@media print{body{margin:2cm;}}</style></head><body>' +
+        contenido.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</body></html>');
+    ventana.document.close(); ventana.focus(); ventana.print();
+}
+</script>
+</body>
+</html>
