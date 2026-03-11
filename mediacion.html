@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediación Extrajudicial — Caso Salón Extravaganza</title>
+    <style>
+        :root { --primary:#1a1a2e; --accent:#2a7a4e; --bg:#f5f5f5; --card:#fff; --text:#333; --muted:#666; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+        header { background:#2a7a4e; color:white; padding:2rem 1rem; text-align:center; }
+        header h1 { font-size:1.8rem; margin-bottom:0.5rem; }
+        header p { color:#c8ecd9; font-size:0.95rem; }
+        .container { max-width:960px; margin:0 auto; padding:1rem; }
+        .alert { background:#fff3cd; border-left:4px solid #ffc107; padding:1rem 1.5rem; margin:1.5rem 0; border-radius:4px; }
+        .alert-danger { background:#f8d7da; border-left-color:#cc0000; }
+        .alert-success { background:#d4edda; border-left-color:#28a745; }
+        .alert-info { background:#d1ecf1; border-left-color:#17a2b8; }
+        .section { background:var(--card); border-radius:8px; padding:1.5rem; margin:1.5rem 0; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+        .section h2 { color:#2a7a4e; border-bottom:2px solid #2a7a4e; padding-bottom:0.5rem; margin-bottom:1rem; font-size:1.3rem; }
+        .section h3 { color:#2a7a4e; margin:1.25rem 0 0.5rem; font-size:1.05rem; }
+        table { width:100%; border-collapse:collapse; margin:1rem 0; }
+        th, td { padding:0.75rem; text-align:left; border-bottom:1px solid #eee; }
+        th { background:#2a7a4e; color:white; font-weight:600; }
+        tr:hover { background:#f9f9f9; }
+        .info-card { background:#2a7a4e; color:white; border-radius:8px; padding:1.5rem; margin:1rem 0; }
+        .info-card p { margin:0.4rem 0; }
+        .info-card a { color:#c8ecd9; }
+        .step { display:flex; gap:1rem; margin:1rem 0; align-items:flex-start; }
+        .step-num { background:#2a7a4e; color:white; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem; flex-shrink:0; }
+        .step-body { flex:1; }
+        .step-body strong { display:block; font-size:1rem; margin-bottom:0.25rem; }
+        .checklist { list-style:none; padding:0; }
+        .checklist li { padding:0.5rem 0; border-bottom:1px solid #eee; display:flex; align-items:flex-start; gap:0.75rem; }
+        .checklist li::before { content:"\2610"; font-size:1.3rem; color:#2a7a4e; flex-shrink:0; }
+        .checklist li:last-child { border-bottom:none; }
+        .carta-box { background:#fff; border:1px solid #ccc; border-radius:8px; padding:2rem; margin:1rem 0; font-family:'Courier New',monospace; font-size:0.88rem; line-height:1.9; white-space:pre-wrap; color:#222; }
+        .btn { display:inline-flex; align-items:center; gap:0.5rem; background:#2a7a4e; color:white; border:none; padding:0.75rem 1.5rem; border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer; margin:0.5rem; text-decoration:none; }
+        .btn:hover { opacity:0.9; }
+        .btn-secondary { background:#1a1a2e; }
+        .nav-back { display:inline-flex; align-items:center; gap:0.5rem; color:#2a7a4e; text-decoration:none; margin-bottom:1rem; font-size:0.95rem; }
+        .nav-back:hover { text-decoration:underline; }
+        .badge { display:inline-block; padding:0.25rem 0.75rem; border-radius:20px; font-size:0.85rem; font-weight:600; }
+        .highlight-box { background:#eafaf2; border:2px solid #2a7a4e; border-radius:8px; padding:1.25rem; margin:1rem 0; }
+        .vs-box { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
+        .vs-item { border-radius:8px; padding:1.25rem; }
+        .vs-item.si { background:#d4edda; border:2px solid #28a745; }
+        .vs-item.no { background:#f8d7da; border:2px solid #dc3545; }
+        .vs-item h4 { margin-bottom:0.75rem; font-size:1rem; }
+        .vs-item.si h4 { color:#155724; }
+        .vs-item.no h4 { color:#721c24; }
+        .vs-item ul { padding-left:1.25rem; }
+        .vs-item li { margin-bottom:0.4rem; font-size:0.9rem; }
+        footer { background:#1a1a2e; color:#999; text-align:center; padding:1.5rem; margin-top:2rem; font-size:0.85rem; }
+        @media(max-width:600px) {
+            header h1 { font-size:1.3rem; }
+            .container { padding:0.5rem; }
+            .vs-box { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>&#9878; Mediación Extrajudicial Previa</h1>
+    <p>Centro de Justicia Alternativa — Poder Judicial del Estado de Guanajuato</p>
+    <p style="margin-top:0.5rem;">
+        <span class="badge" style="background:#d4edda;color:#155724;">Paso recomendado antes de la demanda civil</span>
+        &nbsp;
+        <span class="badge" style="background:#fff3cd;color:#856404;">Sugerido por Protección Civil — 11 mar 2026</span>
+    </p>
+</header>
+
+<div class="container">
+    <a href="index.html" class="nav-back">&#8592; Volver al caso principal</a>
+
+    <div class="alert alert-success">
+        <strong>&#128161; ¿Por qué intentar la mediación primero?</strong> Es un proceso gratuito, rápido (días a semanas)
+        y con pleno valor legal. Si el salón acepta negociar, obtienes un convenio firmado ejecutable.
+        Si rechaza o no se presenta, ese rechazo queda documentado y <strong>fortalece tu demanda civil</strong>.
+        En cualquier escenario, la mediación suma a tu expediente.
+    </div>
+
+    <!-- QUÉ ES -->
+    <div class="section">
+        <h2>&#128203; ¿Qué es el Centro de Justicia Alternativa?</h2>
+        <p>Es un organismo del <strong>Poder Judicial del Estado de Guanajuato</strong> que ofrece mediación,
+        conciliación y arbitraje de forma <strong>gratuita</strong> como alternativa al juicio civil formal.
+        El proceso es confidencial, voluntario y, si hay acuerdo, el convenio tiene la misma fuerza legal
+        que una sentencia judicial.</p>
+
+        <div class="vs-box" style="margin-top:1rem;">
+            <div class="vs-item si">
+                <h4>&#10003; Ventajas de la mediación</h4>
+                <ul>
+                    <li>Gratuita (sin honorarios de abogado ni cuotas judiciales)</li>
+                    <li>Rápida: puede resolverse en días o pocas semanas</li>
+                    <li>Convenio con valor de sentencia ejecutable</li>
+                    <li>Si el salón no va: queda en acta como rechazo</li>
+                    <li>No cierra la demanda civil (puedes demandar después)</li>
+                    <li>Proceso confidencial y sin presión de audiencia pública</li>
+                </ul>
+            </div>
+            <div class="vs-item no">
+                <h4>&#10005; Si el salón no llega a acuerdo</h4>
+                <ul>
+                    <li>El acta de rechazo fortalece tu posición en juicio</li>
+                    <li>El juez puede considerar la mala fe del demandado</li>
+                    <li>Procede directamente la demanda civil con todo el expediente acumulado</li>
+                    <li>No pierdes tiempo: el proceso es corto</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DÓNDE IR -->
+    <div class="section">
+        <h2>&#127968; Dónde Ir: Centro de Justicia Alternativa — León</h2>
+        <div class="info-card">
+            <p><strong>&#128205; Dirección:</strong> Carretera León–Cuerámaro km 5, Ciudad Industrial, León de los Aldama, Guanajuato</p>
+            <p style="font-size:0.9rem; color:#c8ecd9; margin-top:0.25rem;">(Mismas instalaciones que los Juzgados Civiles del Poder Judicial de Guanajuato)</p>
+            <p><strong>&#128222; Teléfono Poder Judicial Guanajuato:</strong> (473) 735-22-00</p>
+            <p><strong>&#128336; Horario:</strong> Lunes a viernes, 9:00 a 14:00 horas</p>
+            <p><strong>&#127760; Portal:</strong> <a href="https://www.poderjudicial-gto.gob.mx" target="_blank">poderjudicial-gto.gob.mx</a></p>
+        </div>
+        <div class="alert alert-info" style="margin-top:1rem;">
+            <strong>Antes de ir:</strong> Llama al (473) 735-22-00 para confirmar el horario de atención del
+            Centro de Justicia Alternativa en León y preguntar si requieres cita previa. Indica que quieres
+            solicitar un proceso de mediación por daños a propiedad.
+        </div>
+    </div>
+
+    <!-- PASO A PASO -->
+    <div class="section">
+        <h2>&#128203; Paso a Paso</h2>
+
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <strong>Llama primero al (473) 735-22-00</strong>
+                Confirma el horario, si necesitas cita y qué documentos llevar.
+                Indica que vienes a solicitar mediación por daños a propiedad contra un salón de eventos.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <strong>Pide el área de Justicia Alternativa o Mediación</strong>
+                Al llegar, solicita el Centro de Justicia Alternativa. Explica que quieres iniciar
+                un proceso de mediación / conciliación contra el Salón Extravaganza por daños
+                causados en un evento el 14 de febrero de 2026.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <strong>Presenta tu solicitud de mediación por escrito</strong>
+                Entrega el escrito de solicitud (ver más abajo) junto con tu expediente completo.
+                El mediador asignado revisará el caso y notificará al Salón Extravaganza.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <strong>El Centro notificará al Salón Extravaganza</strong>
+                Se le invitará a participar en el proceso de mediación. Si el salón acepta,
+                se agenda una sesión con ambas partes y un mediador certificado como facilitador.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <strong>Sesión de mediación</strong>
+                En la sesión, el mediador facilita el diálogo. No es un juicio: no hay ganador
+                ni perdedor. El objetivo es llegar a un acuerdo que ambas partes acepten.
+                <strong>El monto mínimo a negociar: $17,199 MXN</strong> (reemplazo + servicio).
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <strong>Convenio o acta de rechazo</strong>
+                <strong>Si hay acuerdo:</strong> Se firma un convenio de mediación con valor de sentencia ejecutable.
+                El salón queda obligado a pagar en el plazo acordado.<br>
+                <strong>Si no hay acuerdo o el salón no se presenta:</strong> Se levanta acta de intento fallido
+                de mediación. Este documento fortalece tu demanda civil posterior.
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="section">
+        <h2>&#128194; Documentos que Llevar</h2>
+        <p style="color:var(--muted); margin-bottom:1rem;">Lleva todo en una carpeta organizada. <strong>Originales + 2 copias</strong> de cada documento.</p>
+
+        <h3>Identificación</h3>
+        <ul class="checklist">
+            <li>INE / Pasaporte vigente (original + 1 copia)</li>
+        </ul>
+
+        <h3>Documentos del caso</h3>
+        <ul class="checklist">
+            <li>Solicitud de mediación (escrito más abajo) &mdash; 2 copias firmadas</li>
+            <li>Carta formal de reclamación enviada al salón (18 feb 2026)</li>
+            <li>Comprobante de compra Liverpool &mdash; $14,399 MXN</li>
+            <li>Pedido Liverpool #3330051311</li>
+            <li>Captura: DJI confirma sin reparación disponible</li>
+            <li>Captura: precio de reemplazo actual ($9,199 MXN)</li>
+            <li>Tarjeta de presentación del Salón Extravaganza</li>
+            <li>Capturas de WhatsApp ignorado / bloqueado</li>
+            <li>Capturas de correos sin respuesta</li>
+        </ul>
+
+        <h3>Evidencia fotográfica y de video (impresas)</h3>
+        <ul class="checklist">
+            <li>Fotos del sensor dañado (línea blanca + roja + azul)</li>
+            <li>Fotos del láser cruzando la pista durante el evento</li>
+            <li>Fotos del láser apuntando a chambelanes y quinceañera</li>
+            <li>USB con video del momento exacto del daño (evidencia principal)</li>
+        </ul>
+
+        <h3>Acuses de denuncias (respaldan la seriedad del caso)</h3>
+        <ul class="checklist">
+            <li>Sello PROFECO recibido &mdash; Folio 001057, 9 mar 2026</li>
+            <li>Sello Protección Civil recibido &mdash; 11 mar 2026, 13:22 hrs</li>
+        </ul>
+
+        <h3>Referencia del caso completo</h3>
+        <ul class="checklist">
+            <li>URL de evidencias: <strong>caso-laser.invitados.org</strong></li>
+        </ul>
+    </div>
+
+    <!-- MONTO A NEGOCIAR -->
+    <div class="section">
+        <h2>&#128176; Monto y Posición de Negociación</h2>
+        <table>
+            <tr><th>Escenario</th><th>Monto</th><th>Cuándo aplica</th></tr>
+            <tr style="background:#d4edda;">
+                <td><strong>Mínimo aceptable (acuerdo rápido)</strong></td>
+                <td><strong>$17,199 MXN</strong></td>
+                <td>Si el salón responde rápido y de buena fe en la sesión</td>
+            </tr>
+            <tr style="background:#fff3cd;">
+                <td><strong>Intermedio (con gastos de gestión)</strong></td>
+                <td><strong>$20,699 MXN</strong></td>
+                <td>Si el proceso tomó tiempo y gastos adicionales</td>
+            </tr>
+            <tr style="background:#f8d7da;">
+                <td><strong>Máximo (vía demanda civil)</strong></td>
+                <td><strong>$30,699 MXN</strong></td>
+                <td>Si la mediación falla y se va a juicio (incluye daño moral)</td>
+            </tr>
+        </table>
+        <div class="highlight-box" style="margin-top:1rem;">
+            <strong>&#128161; Estrategia para la sesión:</strong> Empieza pidiendo <strong>$20,699 MXN</strong>.
+            Si el salón negociación, puedes ceder hasta <strong>$17,199 MXN</strong> como mínimo aceptable.
+            Si no llegan a acuerdo, informa que el siguiente paso es la demanda civil por <strong>$30,699 MXN</strong>
+            (que incluye daño moral y gastos judiciales). Eso puede motivarlos a aceptar la mediación.
+        </div>
+    </div>
+
+    <!-- ESCRITO DE SOLICITUD -->
+    <div class="section">
+        <h2>&#128220; Escrito de Solicitud de Mediación</h2>
+        <div class="alert alert-info">
+            Presenta este escrito en el Centro de Justicia Alternativa. Lleva 2 copias firmadas de puño y letra.
+            El mediador lo usará para notificar al Salón Extravaganza.
+        </div>
+        <div style="margin-bottom:1rem;">
+            <button class="btn" onclick="imprimirCarta('carta-mediacion')">&#128438; Imprimir / Guardar PDF</button>
+            <button class="btn btn-secondary" onclick="descargarCarta('carta-mediacion','solicitud-mediacion-salonextravaganza.txt')">&#8595; Descargar .txt</button>
+        </div>
+        <div class="carta-box" id="carta-mediacion">León, Guanajuato, a 11 de marzo de 2026
+
+C. DIRECTOR(A)
+Centro de Justicia Alternativa
+Poder Judicial del Estado de Guanajuato
+Carretera León–Cuerámaro km 5, Ciudad Industrial
+León de los Aldama, Guanajuato
+
+ASUNTO: SOLICITUD DE MEDIACIÓN / CONCILIACIÓN EXTRAJUDICIAL
+         Por daños a propiedad — Caso No. FORO7-2026-001
+
+Estimado(a) señor(a) Director(a):
+
+Por medio del presente escrito, yo, ARTURO CRUZ, representante de
+Producciones Foro 7, con domicilio en León, Guanajuato (WhatsApp:
+477-920-3776 | correo: foro7.arturoCruz@gmail.com), solicito
+respetuosamente a este Centro el inicio de un proceso de
+MEDIACIÓN / CONCILIACIÓN con el establecimiento SALÓN EXTRAVAGANZA
+(Blvd. Mariano Escobedo Ote. #4821, Cd. Satélite, C.P. 37407,
+León, Guanajuato; Tel. 477 255 1093; correo:
+administracion@salonextravaganza.com), con el fin de resolver
+de manera extrajudicial la siguiente controversia:
+
+═══════════════════════════════════════════════════════════
+I. ANTECEDENTES
+═══════════════════════════════════════════════════════════
+
+1. El día 14 de febrero de 2026, durante el evento "XV Años de
+   Jade Ramos" celebrado en el Salón Extravaganza, el equipo
+   láser operado por dicho establecimiento (YUER RGB 10W Clase IV,
+   modelo YROYLL10WRGB-XLR-RJ45-EU, potencia total 10,000 mW)
+   dañó de forma permanente e irreparable el sensor CMOS de mi
+   cámara DJI Osmo Pocket 3 Creator Combo (No. serie:
+   5WTZM9C002CVXL), equipo adquirido por $14,399.00 MXN.
+
+2. El láser (Clase IV según norma IEC 60825-1, la categoría de
+   mayor peligro) fue operado cruzando la pista de baile a una
+   altura de 1 a 3 metros sobre la zona de tránsito de personas,
+   sin zona de exclusión, sin señalización de peligro y sin
+   operador certificado en seguridad láser. El haz impactó
+   directamente el sensor de mi equipo, causando daño técnico
+   irreparable con un patrón de tres líneas permanentes
+   (blanca vertical + roja horizontal + azul horizontal)
+   visible en toda grabación y fotografía.
+
+3. DJI México confirmó que no existe reparación disponible en
+   México para este modelo. El costo de reemplazo es $9,199.00 MXN.
+   El daño afectó también el servicio de video profesional
+   contratado para ese evento por $8,000.00 MXN.
+
+4. El 18 de febrero de 2026 notifiqué formalmente al Salón
+   Extravaganza mediante carta entregada físicamente y por
+   correo electrónico (administracion@salonextravaganza.com),
+   otorgando un plazo de 10 días hábiles. El establecimiento
+   NO respondió las comunicaciones y bloqueó el número de
+   WhatsApp del suscrito.
+
+5. El 9 de marzo de 2026, presenté queja ante PROFECO ODECO
+   Zona Bajío (Folio 001057). PROFECO indicó que daños a
+   propiedad de tercero requieren demanda civil personal.
+
+6. El 11 de marzo de 2026, presenté denuncia ante la Dirección
+   de Protección Civil de León (sello RECIBIDO, 13:22 hrs,
+   Caso FORO7-2026-001), la cual canalizó el expediente al
+   Sector Salud y sugirió intentar una negociación extrajudicial
+   antes de la demanda civil.
+
+7. Toda la evidencia del caso (videos, fotografías, documentos)
+   está disponible en: http://caso-laser.invitados.org/
+
+═══════════════════════════════════════════════════════════
+II. PRETENSIÓN
+═══════════════════════════════════════════════════════════
+
+Solicito que el Salón Extravaganza pague la cantidad de:
+
+   Concepto                                     Monto
+   ──────────────────────────────────────────────────────
+   Reemplazo DJI Osmo Pocket 3              $  9,199.00
+   Afectación al servicio de video          $  8,000.00
+   Gastos de transporte y documentación     $    500.00
+   Tiempo invertido en gestión              $  3,000.00
+   ──────────────────────────────────────────────────────
+   TOTAL SOLICITADO EN MEDIACIÓN            $ 20,699.00 MXN
+
+   (Monto mínimo aceptable en acuerdo voluntario: $17,199.00 MXN)
+
+En caso de no llegarse a acuerdo, me reservo el derecho de
+acudir a la demanda civil por $30,699.00 MXN (incluyendo daño
+moral y gastos judiciales), ante los Juzgados Civiles de León
+(Código Civil del Estado de Guanajuato, Arts. 1924–1933).
+
+═══════════════════════════════════════════════════════════
+III. DOCUMENTOS QUE SE ACOMPAÑAN
+═══════════════════════════════════════════════════════════
+
+[1]  Carta formal de reclamación (18 feb 2026)
+[2]  Comprobante de compra Liverpool ($14,399 MXN)
+[3]  Pedido Liverpool #3330051311
+[4]  Confirmación DJI: sin reparación disponible en México
+[5]  Precio de reemplazo ($9,199 MXN)
+[6]  Fotos del sensor CMOS dañado
+[7]  Fotos del láser en operación sobre la pista
+[8]  Capturas de WhatsApp ignorado / bloqueado
+[9]  Capturas de correos sin respuesta
+[10] Acuse PROFECO — Folio 001057 (9 mar 2026)
+[11] Acuse Protección Civil — sello RECIBIDO (11 mar 2026)
+[12] USB: video del momento exacto del daño (evidencia principal)
+[13] Tarjeta de presentación Salón Extravaganza
+[14] Sitio de evidencias: http://caso-laser.invitados.org/
+
+Protesto lo necesario.
+
+
+_________________________________
+Arturo Cruz
+Producciones Foro 7
+WhatsApp: 477-920-3776
+León, Guanajuato, México
+
+Fecha: 11 de marzo de 2026</div>
+    </div>
+
+    <!-- QUÉ ESPERAR -->
+    <div class="section">
+        <h2>&#128336; Qué Esperar del Proceso</h2>
+        <table>
+            <tr><th>Etapa</th><th>Tiempo estimado</th><th>Descripción</th></tr>
+            <tr><td>Registro de solicitud</td><td>El mismo día</td><td>El Centro recibe tu solicitud y asigna un mediador.</td></tr>
+            <tr><td>Notificación al salón</td><td>3–5 días hábiles</td><td>Se invita formalmente al Salón Extravaganza a participar.</td></tr>
+            <tr><td>Respuesta del salón</td><td>5–10 días hábiles</td><td>El salón acepta o rechaza. Si rechaza, queda en acta.</td></tr>
+            <tr><td>Sesión de mediación</td><td>1–3 semanas desde el registro</td><td>Si aceptan, se realiza la sesión con ambas partes y el mediador.</td></tr>
+            <tr><td>Convenio firmado</td><td>En la sesión o al siguiente día</td><td>Si hay acuerdo: convenio con valor de sentencia ejecutable.</td></tr>
+            <tr><td>Si no hay acuerdo</td><td>Inmediatamente</td><td>Acta de intento fallido. Procede demanda civil con expediente fortalecido.</td></tr>
+        </table>
+        <div class="alert alert-success" style="margin-top:1rem;">
+            <strong>En cualquier escenario, ganas:</strong> Si el salón acepta &rarr; cobras sin ir a juicio.
+            Si rechaza &rarr; su rechazo queda documentado y el juez lo considerará al emitir sentencia en la demanda civil.
+        </div>
+    </div>
+
+    <!-- ENLACE A DEMANDA CIVIL -->
+    <div class="section" style="background:linear-gradient(135deg,#0d3b6618,#0d3b6608); border:2px solid #0d3b66;">
+        <h2 style="color:#0d3b66;">&#9878; Si la Mediación No Funciona: Demanda Civil</h2>
+        <p>Si el Salón Extravaganza rechaza la mediación o no se llega a acuerdo, el siguiente
+        paso es la <a href="civil.html" style="color:#1a6eb5; font-weight:600;">Demanda Civil</a> ante los Juzgados Civiles de León.</p>
+        <p style="margin-top:0.75rem;">Para ese momento tendrás un expediente completo con:</p>
+        <ul style="padding-left:1.5rem; margin-top:0.5rem; line-height:2;">
+            <li>Carta formal ignorada (18 feb 2026)</li>
+            <li>Folio PROFECO 001057 (9 mar 2026)</li>
+            <li>Sello Protección Civil (11 mar 2026)</li>
+            <li>Acta de mediación fallida (Centro de Justicia Alternativa)</li>
+            <li>Toda la evidencia fotográfica, de video y técnica</li>
+        </ul>
+        <p style="margin-top:1rem;">
+            <a href="civil.html" class="btn" style="background:#0d3b66;">&#9878; Ver guía de Demanda Civil</a>
+        </p>
+    </div>
+</div>
+
+<footer>
+    <p>Caso FORO7-2026-001 | Producciones Foro 7 — Arturo Cruz | <a href="index.html" style="color:#8ecae6;">Volver al caso principal</a></p>
+</footer>
+
+<script>
+function descargarCarta(id, nombre) {
+    var texto = document.getElementById(id).innerText;
+    var blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = nombre;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+function imprimirCarta(id) {
+    var contenido = document.getElementById(id).innerText;
+    var ventana = window.open('', '_blank');
+    ventana.document.write('<html><head><title>Solicitud de Mediación</title>' +
+        '<style>body{font-family:Courier New,monospace;font-size:12pt;line-height:1.9;margin:2.5cm;white-space:pre-wrap;}' +
+        '@media print{body{margin:2cm;}}</style></head><body>' +
+        contenido.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</body></html>');
+    ventana.document.close(); ventana.focus(); ventana.print();
+}
+</script>
+</body>
+</html>
