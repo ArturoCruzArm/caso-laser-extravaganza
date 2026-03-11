@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente Mediación — Caso FORO7-2026-001</title>
+    <style>
+        /* ── PANTALLA ── */
+        :root {
+            --primary: #1a1a2e;
+            --accent: #2a7a4e;
+            --danger: #cc2200;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #e0e0e0;
+            color: #222;
+            line-height: 1.5;
+        }
+        .screen-notice {
+            background: #2a7a4e;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .screen-notice button {
+            background: white;
+            color: #2a7a4e;
+            border: none;
+            padding: 0.4rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        .page {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 1.5rem auto;
+            padding: 20mm 18mm;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        /* ── TIPOGRAFÍA ── */
+        h1 { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
+        h2 { font-size: 1.15rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.3rem; margin: 1.2rem 0 0.7rem; }
+        h3 { font-size: 1rem; color: var(--primary); margin: 0.9rem 0 0.4rem; }
+        p  { margin-bottom: 0.5rem; font-size: 0.92rem; }
+
+        /* ── PORTADA ── */
+        .portada { text-align: center; padding-top: 15mm; }
+        .portada .caso-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .portada h1 { font-size: 2rem; color: var(--primary); line-height: 1.3; margin-bottom: 0.5rem; }
+        .portada .subtitulo { font-size: 1rem; color: #555; margin-bottom: 2rem; }
+        .portada .datos-tabla { width: 100%; border-collapse: collapse; margin: 1.5rem 0; text-align: left; }
+        .portada .datos-tabla td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .portada .datos-tabla td:first-child { font-weight: 700; color: var(--primary); width: 42%; }
+        .portada .sello-row { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+        .portada .sello-item { text-align: center; }
+        .portada .sello-item img { height: 90px; border: 1px solid #ccc; border-radius: 4px; object-fit: contain; background: #f5f5f5; }
+        .portada .sello-item p { font-size: 0.78rem; color: #555; margin-top: 0.3rem; }
+        .portada .firma-block { margin-top: 3rem; border-top: 2px solid var(--primary); padding-top: 1rem; font-size: 0.9rem; }
+
+        /* ── ÍNDICE ── */
+        .indice-lista { list-style: none; padding: 0; }
+        .indice-lista li { display: flex; justify-content: space-between; padding: 0.35rem 0; border-bottom: 1px dotted #ccc; font-size: 0.9rem; }
+        .indice-lista li span:first-child { color: var(--primary); }
+        .indice-lista li span.num { font-weight: 700; color: var(--accent); min-width: 20px; }
+        .sec-num { display: inline-block; background: var(--accent); color: white; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-size: 0.8rem; font-weight: 700; margin-right: 0.5rem; }
+
+        /* ── TABLAS ── */
+        table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem; }
+        th { background: var(--primary); color: white; padding: 0.5rem 0.7rem; text-align: left; }
+        td { padding: 0.45rem 0.7rem; border-bottom: 1px solid #eee; vertical-align: top; }
+        tr:nth-child(even) td { background: #fafafa; }
+
+        /* ── ALERTAS ── */
+        .alerta { padding: 0.7rem 1rem; border-radius: 4px; margin: 0.75rem 0; font-size: 0.88rem; }
+        .alerta-rojo  { background: #f8d7da; border-left: 4px solid var(--danger); }
+        .alerta-verde { background: #d4edda; border-left: 4px solid #28a745; }
+        .alerta-azul  { background: #d1ecf1; border-left: 4px solid #17a2b8; }
+        .alerta-gris  { background: #f5f5f5; border-left: 4px solid #999; }
+
+        /* ── CARTA (monospace) ── */
+        .carta {
+            font-family: 'Courier New', monospace;
+            font-size: 0.82rem;
+            line-height: 1.75;
+            white-space: pre-wrap;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            padding: 1.2rem 1.4rem;
+            background: #fff;
+            color: #111;
+            margin: 0.75rem 0;
+        }
+
+        /* ── IMÁGENES ── */
+        .img-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin: 0.75rem 0; }
+        .img-grid.cols3 { grid-template-columns: repeat(3, 1fr); }
+        .img-grid.cols1 { grid-template-columns: 1fr; }
+        .img-card { border: 1px solid #ddd; border-radius: 4px; overflow: hidden; }
+        .img-card img { width: 100%; display: block; object-fit: contain; background: #f0f0f0; }
+        .img-card .cap { background: var(--primary); color: white; font-size: 0.75rem; padding: 0.35rem 0.5rem; text-align: center; line-height: 1.3; }
+        .img-full img { width: 100%; max-height: 160mm; object-fit: contain; background: #f0f0f0; border: 1px solid #ddd; border-radius: 4px; display: block; }
+        .img-full .cap { background: var(--primary); color: white; font-size: 0.8rem; padding: 0.4rem 0.6rem; text-align: center; }
+
+        /* ── TIMELINE ── */
+        .tl { padding-left: 1.2rem; border-left: 3px solid var(--accent); margin: 0.5rem 0; }
+        .tl-item { position: relative; margin-bottom: 0.9rem; padding-left: 0.8rem; font-size: 0.88rem; }
+        .tl-item::before { content:''; position: absolute; left: -1.45rem; top: 0.35rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+        .tl-item .fecha { font-weight: 700; color: var(--accent); font-size: 0.82rem; }
+
+        /* ── MONTOS ── */
+        .monto-tabla td:last-child { text-align: right; font-weight: 700; }
+        .monto-total td { background: var(--primary) !important; color: white; font-weight: 700; font-size: 1rem; }
+
+        /* ── FIRMA ── */
+        .firma { margin-top: 1.5rem; padding-top: 0.75rem; border-top: 1px solid #ccc; font-size: 0.88rem; }
+        .linea-firma { border-top: 1px solid #333; width: 60mm; margin: 1.5rem 0 0.25rem; }
+
+        /* ── SECCIÓN DIVISOR ── */
+        .divisor { background: var(--primary); color: white; padding: 0.6rem 1rem; border-radius: 4px; margin: 1rem 0 0.5rem; font-size: 0.95rem; font-weight: 700; }
+
+        /* ── PRINT ── */
+        @media print {
+            @page { size: A4; margin: 18mm 16mm; }
+            body { background: white; }
+            .screen-notice { display: none !important; }
+            .page {
+                width: 100%;
+                min-height: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            .page:last-child { page-break-after: auto; }
+            .pb { page-break-before: always; }
+            .no-break { page-break-inside: avoid; }
+            h2 { page-break-after: avoid; }
+            .img-card, .img-full, .alerta, .carta { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- BOTÓN DE IMPRESIÓN (solo pantalla) -->
+<div class="screen-notice">
+    <strong>Expediente listo para PDF</strong> — Abre la impresora con el botón o con Ctrl+P y selecciona "Guardar como PDF"
+    <button onclick="window.print()">&#128438; Imprimir / Guardar PDF</button>
+    <a href="index.html" style="color:#c8ecd9; font-size:0.9rem; margin-left:1rem;">← Volver al caso</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 1 — PORTADA
+═══════════════════════════════════════════════ -->
+<div class="page">
+    <div class="portada">
+        <div class="caso-badge">CASO No. FORO7-2026-001</div>
+        <h1>EXPEDIENTE DE MEDIACIÓN<br>EXTRAJUDICIAL</h1>
+        <p class="subtitulo">Daño a equipo profesional por láser RGB Clase IV sin medidas de seguridad<br>
+        Salón Extravaganza — León, Guanajuato — Evento: 14 de febrero de 2026</p>
+
+        <table class="datos-tabla">
+            <tr><td>Solicitante</td><td>Arturo Cruz — Producciones Foro 7</td></tr>
+            <tr><td>WhatsApp / Contacto</td><td>477-920-3776 &nbsp;|&nbsp; foro7.arturoCruz@gmail.com</td></tr>
+            <tr><td>Demandado</td><td>Salón Extravaganza</td></tr>
+            <tr><td>Domicilio demandado</td><td>Blvd. Mariano Escobedo Ote. #4821, Cd. Satélite, 37407, León, Gto.</td></tr>
+            <tr><td>Teléfono demandado</td><td>477 255 1093</td></tr>
+            <tr><td>Correo demandado</td><td>administracion@salonextravaganza.com</td></tr>
+            <tr><td>Institución</td><td>Centro de Justicia Alternativa — Poder Judicial del Estado de Guanajuato</td></tr>
+            <tr><td>Fecha del daño</td><td>14 de febrero de 2026</td></tr>
+            <tr><td>Fecha de presentación</td><td>Marzo de 2026</td></tr>
+            <tr><td>Monto solicitado</td><td><strong>$20,699.00 MXN</strong> (mínimo aceptable: $17,199.00 MXN)</td></tr>
+            <tr><td>Evidencias en línea</td><td>caso-laser.invitados.org</td></tr>
+        </table>
+
+        <div class="sello-row">
+            <div class="sello-item">
+                <img src="evidencias/profeco-sello-recibido-09mar2026.jpg" alt="Sello PROFECO">
+                <p>Folio PROFECO 001057<br>9 mar 2026</p>
+            </div>
+            <div class="sello-item">
+                <img src="evidencias/proteccion-civil-sello-recibido-11mar2026.jpg" alt="Sello Protección Civil">
+                <p>Sello Protección Civil<br>11 mar 2026 — Auditoría confirmada</p>
+            </div>
+        </div>
+
+        <div class="firma-block">
+            <div class="linea-firma"></div>
+            <p><strong>Arturo Cruz</strong> — Producciones Foro 7</p>
+            <p>León, Guanajuato, México</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 2 — ÍNDICE + RESUMEN
+═══════════════════════════════════════════════ -->
+<div class="page">
+    <h2>Índice del Expediente</h2>
+    <ul class="indice-lista">
+        <li><span><span class="num">I</span> Solicitud de Mediación</span><span>Sec. I</span></li>
+        <li><span><span class="num">II</span> Resumen del caso y monto reclamado</span><span>Sec. II</span></li>
+        <li><span><span class="num">III</span> Cronología de hechos</span><span>Sec. III</span></li>
+        <li><span><span class="num">IV</span> Descripción técnica del daño al sensor</span><span>Sec. IV</span></li>
+        <li><span><span class="num">V</span> Especificaciones del láser involucrado</span><span>Sec. V</span></li>
+        <li><span><span class="num">VI</span> Carta formal de reclamación (18 feb 2026)</span><span>Sec. VI</span></li>
+        <li><span><span class="num">VII</span> Evidencias del equipo dañado</span><span>Sec. VII</span></li>
+        <li><span><span class="num">VIII</span> Comprobantes de compra</span><span>Sec. VIII</span></li>
+        <li><span><span class="num">IX</span> DJI — Sin cobertura de reparación</span><span>Sec. IX</span></li>
+        <li><span><span class="num">X</span> Evidencias del incidente (láser en el evento)</span><span>Sec. X</span></li>
+        <li><span><span class="num">XI</span> Evidencias de contacto sin respuesta</span><span>Sec. XI</span></li>
+        <li><span><span class="num">XII</span> Acuses de denuncias presentadas</span><span>Sec. XII</span></li>
+        <li><span><span class="num">XIII</span> Fundamento legal</span><span>Sec. XIII</span></li>
+    </ul>
+
+    <div style="margin-top:1.2rem;">
+        <h2>II. Resumen del Caso</h2>
+        <table>
+            <tr><th colspan="2">Datos del incidente</th></tr>
+            <tr><td><strong>Afectado</strong></td><td>Arturo Cruz — Producciones Foro 7</td></tr>
+            <tr><td><strong>Equipo dañado</strong></td><td>DJI Osmo Pocket 3 Creator Combo 4K/UHD — No. serie: 5WTZM9C002CVXL</td></tr>
+            <tr><td><strong>Tipo de daño</strong></td><td>Sensor CMOS quemado por láser — daño permanente e irreparable</td></tr>
+            <tr><td><strong>Fecha del daño</strong></td><td>14 de febrero de 2026 — evento "XV Años de Jade Ramos"</td></tr>
+            <tr><td><strong>Causante</strong></td><td>Salón Extravaganza — láser YUER RGB 10W Clase IV operado sin medidas de seguridad</td></tr>
+            <tr><td><strong>Reparación</strong></td><td>NO DISPONIBLE — DJI México confirmó sin cobertura para este modelo</td></tr>
+        </table>
+
+        <h3>Monto reclamado</h3>
+        <table class="monto-tabla">
+            <tr><th>Concepto</th><th>Monto</th></tr>
+            <tr><td>Reemplazo DJI Osmo Pocket 3 (precio actual Liverpool)</td><td>$9,199.00</td></tr>
+            <tr><td>Afectación al servicio de video profesional contratado ($8,000 MXN)</td><td>$8,000.00</td></tr>
+            <tr><td>Gastos de transporte, dominio y documentación</td><td>$500.00</td></tr>
+            <tr><td>Tiempo invertido en gestión del caso (~10 hrs)</td><td>$3,000.00</td></tr>
+            <tr class="monto-total"><td>TOTAL SOLICITADO EN MEDIACIÓN</td><td>$20,699.00 MXN</td></tr>
+        </table>
+        <p style="font-size:0.82rem; color:#555; margin-top:0.25rem;">Mínimo aceptable en acuerdo voluntario: <strong>$17,199.00 MXN</strong>. En caso de no acuerdo, demanda civil: <strong>$30,699.00 MXN</strong> (incluye daño moral).</p>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 3 — SOLICITUD DE MEDIACIÓN (CARTA)
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">I. SOLICITUD DE MEDIACIÓN / CONCILIACIÓN EXTRAJUDICIAL</div>
+    <div class="alerta alerta-azul">
+        Presentar <strong>2 copias firmadas de puño y letra</strong> en el Centro de Justicia Alternativa.
+        El mediador asignado usa este escrito para notificar al Salón Extravaganza.
+    </div>
+    <div class="carta">León, Guanajuato, a ___ de marzo de 2026
+
+C. DIRECTOR(A)
+Centro de Justicia Alternativa
+Poder Judicial del Estado de Guanajuato
+Carretera León–Cuerámaro km 5, Ciudad Industrial
+León de los Aldama, Guanajuato
+Tel: (473) 735-22-00
+
+ASUNTO: SOLICITUD DE MEDIACIÓN / CONCILIACIÓN EXTRAJUDICIAL
+         Por daños a propiedad — Caso No. FORO7-2026-001
+
+Estimado(a) señor(a) Director(a):
+
+Por medio del presente escrito, yo, ARTURO CRUZ, representante de
+Producciones Foro 7, con domicilio en León, Guanajuato (WhatsApp:
+477-920-3776 | foro7.arturoCruz@gmail.com), solicito el inicio de
+un proceso de MEDIACIÓN / CONCILIACIÓN con el establecimiento
+SALÓN EXTRAVAGANZA (Blvd. Mariano Escobedo Ote. #4821, Cd. Satélite,
+C.P. 37407, León, Gto.; Tel. 477 255 1093;
+administracion@salonextravaganza.com) para resolver la siguiente
+controversia:
+
+I. HECHOS
+
+1. El 14 de febrero de 2026, durante el evento "XV Años de Jade
+   Ramos" en el Salón Extravaganza, el láser operado por dicho
+   establecimiento (YUER RGB 10W Clase IV, modelo
+   YROYLL10WRGB-XLR-RJ45-EU, potencia total 10,000 mW) dañó de
+   forma permanente e irreparable el sensor CMOS de mi cámara
+   DJI Osmo Pocket 3 Creator Combo (No. serie: 5WTZM9C002CVXL),
+   equipo adquirido por $14,399.00 MXN (Liverpool, Pedido
+   #3330051311).
+
+2. El láser (Clase IV según norma IEC 60825-1, la categoría de
+   mayor peligro) fue operado cruzando la pista de baile a una
+   altura de 1 a 3 metros, en zona de tránsito de personas, sin
+   zona de exclusión, sin señalización y sin operador certificado.
+
+3. DJI México confirmó que no existe reparación disponible para
+   este modelo en México. Costo de reemplazo: $9,199.00 MXN.
+   El daño afectó también el servicio de video contratado por
+   $8,000.00 MXN.
+
+4. El 18 de febrero de 2026 notifiqué formalmente al salón por
+   escrito y correo electrónico. El establecimiento NO respondió
+   y bloqueó mi número de WhatsApp.
+
+5. El 9 de marzo de 2026: queja ante PROFECO ODECO Zona Bajío,
+   Folio 001057. PROFECO remite a demanda civil personal.
+
+6. El 11 de marzo de 2026: denuncia ante la Dirección de
+   Protección Civil de León, sello RECIBIDO (13:22 hrs, Caso
+   FORO7-2026-001). Protección Civil confirmó auditoría interna
+   al Salón Extravaganza y sugirió negociación extrajudicial
+   previa a la demanda civil.
+
+   Evidencia completa: http://caso-laser.invitados.org/
+
+II. PRETENSIÓN
+
+   Concepto                                   Monto
+   ────────────────────────────────────────────────
+   Reemplazo DJI Osmo Pocket 3           $  9,199.00
+   Afectación servicio de video          $  8,000.00
+   Gastos de gestión y documentación     $    500.00
+   Tiempo invertido en gestión           $  3,000.00
+   ────────────────────────────────────────────────
+   TOTAL EN MEDIACIÓN                    $ 20,699.00 MXN
+
+   Mínimo aceptable (acuerdo voluntario): $17,199.00 MXN
+   En caso de no acuerdo, demanda civil:  $30,699.00 MXN
+   (incluye daño moral — Arts. 1924-1933 CCEG)
+
+Se adjuntan al presente todos los documentos y evidencias.
+
+Protesto lo necesario.
+
+
+_________________________________
+Arturo Cruz
+Producciones Foro 7
+WhatsApp: 477-920-3776
+León, Guanajuato, México</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 4 — CRONOLOGÍA
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">III. CRONOLOGÍA DE HECHOS</div>
+    <div class="tl">
+        <div class="tl-item">
+            <div class="fecha">21 noviembre 2024</div>
+            <p>Compra de DJI Osmo Pocket 3 Creator Combo en Liverpool León — <strong>$14,399.00 MXN</strong>. Pedido #3330051311, Boleta #039241121989536.</p>
+        </div>
+        <div class="tl-item">
+            <div class="fecha">14 febrero 2026 — Incidente</div>
+            <p>XV Años de Jade Ramos en Salón Extravaganza. El láser YUER RGB 10W Clase IV del salón proyecta "EXTRAVAGANZA" cruzando la pista de baile sin medidas de seguridad. El haz impacta el sensor CMOS de la cámara durante una grabación 360°, causando daño permanente e irreparable. La mamá de la quinceañera manifiesta molestia por la calidad del video. Se detecta el daño el mismo día.</p>
+        </div>
+        <div class="tl-item">
+            <div class="fecha">15 febrero 2026</div>
+            <p>Se verifica que DJI no ofrece cobertura ni reparación en México. Se contacta al técnico del láser, quien confirma la situación y remite al organizador del evento.</p>
+        </div>
+        <div class="tl-item">
+            <div class="fecha">16 febrero 2026</div>
+            <p>Reunión con gerente del Salón Extravaganza. El gerente se niega a pagar argumentando que la clienta solicitó el servicio. Se advierte sobre posibles acciones legales. Indica que "mandará mensaje" sin dar fecha concreta. Se envía por WhatsApp el link del sitio de evidencias a Fernanda Escobedo (Asistente Admin.) — responde "Gracias" (ticks azules).</p>
+        </div>
+        <div class="tl-item">
+            <div class="fecha">18 febrero 2026 — Carta formal enviada</div>
+            <p>Carta de reclamación enviada por correo a administracion@salonextravaganza.com y entregada físicamente. Monto: <strong>$20,699.00 MXN</strong>. Plazo: 10 días hábiles (vence 4 mar 2026). <strong>Sin respuesta.</strong></p>
+        </div>
+        <div class="tl-item">
+            <div class="fecha">4 marzo 2026 — Vencimiento del plazo</div>
+            <p>Vence el plazo otorgado. El salón no respondió correos, bloqueó el número de WhatsApp del suscrito. Proceden acciones formales.</p>
+        </div>
+        <div class="tl-item">
+            <div class="fecha">9 marzo 2026 — PROFECO</div>
+            <p>Queja presentada ante PROFECO ODECO Zona Bajío. <strong>Folio 001057</strong> recibido. PROFECO indica que daños y perjuicios a propiedad requieren demanda civil personal.</p>
+        </div>
+        <div class="tl-item">
+            <div class="fecha">11 marzo 2026 — Protección Civil</div>
+            <p>Denuncia presentada ante la Dirección de Protección Civil de León. Sello RECIBIDO (13:22 hrs). <strong>Protección Civil confirmó auditoría interna al Salón Extravaganza</strong> (área interna de verificación). Canalización a Sector Salud. Se sugiere negociación extrajudicial previa a la demanda civil.</p>
+        </div>
+        <div class="tl-item no-break">
+            <div class="fecha">Marzo 2026 — Presente</div>
+            <p>Se solicita proceso de mediación / conciliación extrajudicial ante el Centro de Justicia Alternativa del Poder Judicial de Guanajuato como paso previo a la demanda civil por $30,699 MXN.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 5 — DAÑO TÉCNICO + ESPECIFICACIONES LÁSER
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">IV. DESCRIPCIÓN TÉCNICA DEL DAÑO AL SENSOR</div>
+    <p>El sensor CMOS de la DJI Osmo Pocket 3 (No. serie 5WTZM9C002CVXL) presenta tres marcas
+    permanentes visibles en toda grabación y fotografía realizada con el equipo a partir del
+    momento del impacto:</p>
+    <table style="margin-top:0.5rem;">
+        <tr><th>Marca</th><th>Descripción técnica</th><th>Canal láser causante</th></tr>
+        <tr><td>Línea vertical negra punteada</td><td>Columna de píxeles saturados permanentemente por el paso del haz galvanométrico (30 KPPS) concentrado por la óptica de la cámara</td><td>Haz combinado RGB</td></tr>
+        <tr><td>Línea horizontal roja</td><td>Fila de fotodetectores del filtro rojo del sensor Bayer quemados</td><td>Canal Rojo 638 nm, 3,000 mW</td></tr>
+        <tr><td>Punto blanco brillante</td><td>Intersección de mayor impacto — saturación total de los fotodetectores</td><td>Haz combinado RGB</td></tr>
+    </table>
+    <div class="alerta alerta-rojo" style="margin-top:0.75rem;">
+        <strong>Conclusión técnica:</strong> Este patrón de tres líneas ortogonales en colores distintos es la firma
+        característica e inequívoca de un impacto de láser RGB multicanal sobre sensor CMOS con patrón Bayer.
+        No existe otro mecanismo de fallo conocido que produzca exactamente este patrón.
+        El momento del daño está documentado en video continuo (USB adjunto).
+    </div>
+
+    <div class="divisor" style="margin-top:1.2rem;">V. ESPECIFICACIONES DEL LÁSER INVOLUCRADO</div>
+    <table>
+        <tr><th colspan="2">YUER RGB 10W — Modelo YROYLL10WRGB-XLR-RJ45-EU — Clase IV (IEC 60825-1)</th></tr>
+        <tr><td><strong>Canal Rojo</strong></td><td>3,000 mW / 638 nm — 6× el umbral de Clase IV (500 mW)</td></tr>
+        <tr><td><strong>Canal Verde</strong></td><td>2,800 mW / 525 nm — 5.6× el umbral de Clase IV</td></tr>
+        <tr><td><strong>Canal Azul</strong></td><td>4,200 mW / 450 nm — 8.4× el umbral de Clase IV</td></tr>
+        <tr><td><strong>Potencia total</strong></td><td>10,000 mW (10 W) — Galvanómetro 30,000 PPS</td></tr>
+        <tr><td><strong>Clasificación</strong></td><td>CLASE IV — categoría de MAYOR PELIGRO según IEC 60825-1. Puede causar ceguera instantánea e irreversible con exposición directa momentánea.</td></tr>
+    </table>
+    <div class="alerta alerta-rojo" style="margin-top:0.5rem;">
+        <strong>Obligaciones del operador incumplidas:</strong> Un láser Clase IV requiere obligatoriamente: operador certificado en seguridad láser, zona de exclusión delimitada y señalizada, y controles que impidan que el haz alcance la zona de audiencia a altura de personas (1.0–2.0 m de pie).
+        El Salón Extravaganza operó este equipo proyectando el haz a 1–3 metros directamente sobre la pista de baile con menores de edad presentes, sin ninguna de estas medidas.
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 6 — CARTA FORMAL DE RECLAMACIÓN
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">VI. CARTA FORMAL DE RECLAMACIÓN — 18 DE FEBRERO DE 2026</div>
+    <div class="alerta alerta-gris">
+        Carta enviada por correo a administracion@salonextravaganza.com el 18 feb 2026 (3:56 pm) con PDF adjunto,
+        y entregada físicamente en el salón. <strong>Sin respuesta a la fecha.</strong>
+    </div>
+    <div class="carta">León, Guanajuato, a 18 de febrero de 2026
+
+Salón Extravaganza
+Blvd. Mariano Escobedo Ote. #4821
+Cd. Satélite, 37407, León, Guanajuato
+administracion@salonextravaganza.com | Tel: 477 255 1093
+
+ASUNTO: RECLAMACIÓN FORMAL POR DAÑO A EQUIPO PROFESIONAL
+         Caso No. FORO7-2026-001
+
+Estimados señores:
+
+Por medio del presente, yo, Arturo Cruz, representante de Producciones
+Foro 7, notifico formalmente el daño causado a mi equipo durante el
+evento realizado en sus instalaciones el 14 de febrero de 2026.
+
+HECHOS:
+
+1. El equipo láser operado por su establecimiento —LÁSER RGB 10W Clase IV
+   (Rojo 3,000 mW / Verde 2,800 mW / Azul 4,200 mW)— proyectaba el texto
+   "EXTRAVAGANZA" cruzando la pista de baile a 1–3 metros de altura, en
+   zona de tránsito, sin señalización ni medidas de seguridad.
+
+2. El haz impactó el sensor CMOS de mi cámara DJI Osmo Pocket 3 (No.
+   serie: 5WTZM9C002CVXL), causando daño permanente e irreparable.
+
+3. DJI confirmó que no existe reparación de sensor disponible en México
+   para este modelo. El daño también afectó el servicio de video
+   contratado ($8,000.00 MXN).
+
+SOLICITUD: Pago de $20,699.00 MXN en un plazo de 10 días hábiles.
+           Monto mínimo de acuerdo voluntario: $17,199.00 MXN.
+
+En caso de no respuesta, se procederá con queja ante PROFECO, denuncia
+ante Protección Civil y demanda civil ($30,699 MXN incluye daño moral).
+
+_________________________________
+Arturo Cruz — Producciones Foro 7
+WhatsApp: 477-920-3776</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 7 — EVIDENCIAS SENSOR DAÑADO + CÁMARA
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">VII. EVIDENCIAS DEL EQUIPO DAÑADO</div>
+    <div class="img-grid cols1" style="margin-bottom:0.75rem;">
+        <div class="img-card no-break">
+            <img src="evidencias/sensor-danado.jpg" alt="Sensor CMOS dañado" style="max-height:140mm;">
+            <div class="cap">SENSOR CMOS DAÑADO — Patrón permanente: línea vertical negra punteada, punto blanco brillante en intersección, línea horizontal roja. Visible en toda grabación desde el momento del impacto. Daño irreparable.</div>
+        </div>
+    </div>
+    <div class="img-grid">
+        <div class="img-card no-break">
+            <img src="evidencias/camara-fisica.jpg" alt="DJI Osmo Pocket 3" style="max-height:80mm;">
+            <div class="cap">DJI Osmo Pocket 3 Creator Combo — Equipo dañado. No. serie: 5WTZM9C002CVXL</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/dji-sin-cobertura.jpg" alt="DJI sin cobertura" style="max-height:80mm;">
+            <div class="cap">Portal DJI — "Sin cobertura de reparación para este producto". No. serie: 5WTZM9C002CVXL.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 8 — COMPROBANTES DE COMPRA + REEMPLAZO
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">VIII. COMPROBANTES DE COMPRA &nbsp;&nbsp; IX. PRECIO DE REEMPLAZO</div>
+    <div class="img-grid cols1" style="margin-bottom:0.75rem;">
+        <div class="img-card no-break">
+            <img src="evidencias/comprobante-compra.jpg" alt="Comprobante de compra Liverpool" style="max-height:110mm;">
+            <div class="cap">COMPROBANTE DE COMPRA — Liverpool León. DJI Osmo Pocket 3 Creator Combo 4K/UHD. <strong>$14,399.00 MXN</strong>. Fecha: 21 de noviembre de 2024. No. pedido: 3330051311. Boleta: 039241121989536.</div>
+        </div>
+    </div>
+    <div class="img-grid">
+        <div class="img-card no-break">
+            <img src="evidencias/comprobante-pedido.jpg" alt="Pedido Liverpool #3330051311" style="max-height:80mm;">
+            <div class="cap">Confirmación Pedido Liverpool #3330051311 — DJI Osmo Pocket 3 Creator Combo. Código: 1146637015. Fecha: 21 nov 2024.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/precio-reemplazo.jpg" alt="Precio de reemplazo" style="max-height:80mm;">
+            <div class="cap">PRECIO DE REEMPLAZO ACTUAL — <strong>$9,199.00 MXN</strong> en Liverpool. (Monto solicitado por este concepto.)</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 9 — LÁSER EN EL EVENTO (EVIDENCIAS)
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">X. EVIDENCIAS DEL INCIDENTE — LÁSER EN EL EVENTO (14 FEB 2026)</div>
+    <div class="alerta alerta-rojo">
+        Las siguientes imágenes fueron tomadas el día del evento en el Salón Extravaganza.
+        Muestran el láser YUER RGB 10W Clase IV en operación y su posición respecto a los asistentes y menores de edad.
+    </div>
+    <div class="img-grid cols2">
+        <div class="img-card no-break">
+            <img src="evidencias/vals-chambelanes-dano-01.jpg" alt="Vals chambelanes daño" style="max-height:70mm;">
+            <div class="cap">Vals — chambelanes con el láser visible. Evidencia 01.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/vals-quinceañera-panoramica-02.jpg" alt="Vals quinceañera panorámica" style="max-height:70mm;">
+            <div class="cap">Panorámica del vals — láser sobre la pista de baile. Evidencia 02.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/vals-close-up-03.jpg" alt="Vals close-up" style="max-height:70mm;">
+            <div class="cap">Close-up del vals — láser apuntando hacia los participantes. Evidencia 03.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/vals-quinceañera-frente-04.jpg" alt="Quinceañera frente al láser" style="max-height:70mm;">
+            <div class="cap">Quinceañera de frente al láser. Evidencia 04.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 10 — MÁS EVIDENCIAS DEL LÁSER
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">X. EVIDENCIAS DEL INCIDENTE (continuación)</div>
+    <div class="img-grid cols2">
+        <div class="img-card no-break">
+            <img src="evidencias/vals-escena-completa-05.jpg" alt="Escena completa" style="max-height:70mm;">
+            <div class="cap">Escena completa del vals — láser cruzando la pista. Evidencia 05.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/vals-levantada-laser-06.jpg" alt="Vals levantada láser" style="max-height:70mm;">
+            <div class="cap">Quinceañera siendo levantada frente al haz láser. Evidencia 06.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/vals-chambelanes-rodillas-07.jpg" alt="Chambelanes de rodillas" style="max-height:70mm;">
+            <div class="cap">Chambelanes arrodillados — láser a nivel de su cara. Evidencia 07.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/vals-levantada-frente-laser-08.jpg" alt="Levantada frente al láser" style="max-height:70mm;">
+            <div class="cap">Quinceañera levantada directamente frente al haz. Evidencia 08.</div>
+        </div>
+    </div>
+    <div class="img-grid cols2" style="margin-top:0.5rem;">
+        <div class="img-card no-break">
+            <img src="evidencias/captura-video-laser-vals-09.jpg" alt="Captura video láser vals" style="max-height:70mm;">
+            <div class="cap">Captura de video — láser durante el vals. Evidencia 09.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/captura-video-laser-invitados-10.jpg" alt="Láser sobre invitados" style="max-height:70mm;">
+            <div class="cap">Segundo láser circular impactando a invitados bailando. Evidencia 10.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 11 — EQUIPO LÁSER IDENTIFICADO
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">X. EVIDENCIAS DEL INCIDENTE — EQUIPO LÁSER IDENTIFICADO</div>
+    <div class="img-grid cols2">
+        <div class="img-card no-break">
+            <img src="evidencias/laser-chambelanes-puntos-piso-11.jpg" alt="Láser en operación" style="max-height:100mm;">
+            <div class="cap">Láser YUER en operación durante el evento — chambelanes sentados. La luz intensa (detrás de los chambelanes) corresponde a la unidad láser. Evidencia 11.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/laser-unidad-zoom-marca-12.png" alt="Unidad láser zoom marca YUER" style="max-height:100mm;">
+            <div class="cap">Zoom de la unidad láser — logo "YUE" visible. Confirma marca YUER, modelo YROYLL10WRGB-XLR-RJ45-EU. Evidencia 12.</div>
+        </div>
+    </div>
+    <div class="alerta alerta-rojo" style="margin-top:0.75rem;">
+        <strong>VIDEO PRINCIPAL — USB adjunto:</strong> El video de paneo 360° captura el momento exacto del impacto del láser en el sensor, antes y después del daño en una sola toma continua. Es la evidencia técnica más contundente del caso.
+    </div>
+    <div class="img-card no-break" style="margin-top:0.5rem;">
+        <img src="evidencias/tarjeta-salon.jpg" alt="Tarjeta del Salón Extravaganza" style="max-height:70mm; width:100%; object-fit:contain; background:#f0f0f0;">
+        <div class="cap">Tarjeta de presentación — Fernanda Escobedo, Asistente Administrativo, Salón Extravaganza. Tel: 477 255 1093. administracion@salonextravaganza.com.</div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 12 — CONTACTO SIN RESPUESTA
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">XI. EVIDENCIAS DE CONTACTO SIN RESPUESTA</div>
+    <div class="alerta alerta-rojo">
+        El Salón Extravaganza fue notificado en múltiples ocasiones. En ninguna respondió de buena fe.
+        Esta conducta queda documentada como evidencia de evasión.
+    </div>
+    <div class="img-grid cols2">
+        <div class="img-card no-break">
+            <img src="evidencias/correo-enviado-18feb.png" alt="Correo enviado sin respuesta" style="max-height:90mm;">
+            <div class="cap">Correo enviado el 18 de febrero (3:56 pm) a administracion@salonextravaganza.com con carta formal adjunta. <strong>Sin respuesta a la fecha.</strong></div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/whatsapp-contacto-fernanda.jpg" alt="WhatsApp Fernanda Escobedo" style="max-height:90mm;">
+            <div class="cap">WhatsApp con Fernanda Escobedo: el 16 feb leyó el link del caso (ticks azules) y respondió "Gracias". El 21 feb se preguntó por el correo — <strong>entregado, sin respuesta.</strong></div>
+        </div>
+    </div>
+    <div class="img-grid cols1" style="margin-top:0.5rem;">
+        <div class="img-card no-break">
+            <img src="evidencias/whatsapp-demanda-notificada.png" alt="WhatsApp notificación demanda" style="max-height:80mm; object-fit:contain;">
+            <div class="cap">WhatsApp a Fernanda Escobedo — notificación de inicio de acciones legales con oferta de conciliación previa. <strong>Mensaje entregado. Sin respuesta. Número posteriormente bloqueado.</strong></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 13 — ACUSES DE DENUNCIAS
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">XII. ACUSES DE DENUNCIAS PRESENTADAS</div>
+    <div class="alerta alerta-verde">
+        Ambas denuncias fueron recibidas por instituciones oficiales antes de iniciar la mediación.
+        Estos documentos respaldan la seriedad del caso y demuestran que se agotaron las instancias previas.
+    </div>
+    <div class="img-grid cols2" style="margin-top:0.75rem;">
+        <div class="img-card no-break">
+            <img src="evidencias/profeco-sello-recibido-09mar2026.jpg" alt="Sello PROFECO" style="max-height:120mm;">
+            <div class="cap">PROFECO ODECO ZONA BAJÍO — Queja recibida el <strong>9 de marzo de 2026</strong>. Folio <strong>001057</strong>. Caso FORO7-2026-001. PROFECO indica que daños a propiedad requieren demanda civil.</div>
+        </div>
+        <div class="img-card no-break">
+            <img src="evidencias/proteccion-civil-sello-recibido-11mar2026.jpg" alt="Sello Protección Civil" style="max-height:120mm;">
+            <div class="cap">DIRECCIÓN DE PROTECCIÓN CIVIL LEÓN — Denuncia recibida el <strong>11 de marzo de 2026</strong>, <strong>13:22 hrs</strong>. Caso FORO7-2026-001. <strong>Auditoría interna al Salón Extravaganza confirmada</strong> (área interna de verificación).</div>
+        </div>
+    </div>
+    <div class="alerta alerta-azul" style="margin-top:0.75rem;">
+        <strong>Nota sobre Protección Civil:</strong> La auditoría al Salón Extravaganza está en proceso por el área interna de la Dirección de Protección Civil de León. El resultado puede derivar en multa administrativa o suspensión del permiso de operación del establecimiento.
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PÁGINA 14 — FUNDAMENTO LEGAL + CIERRE
+═══════════════════════════════════════════════ -->
+<div class="page pb">
+    <div class="divisor">XIII. FUNDAMENTO LEGAL</div>
+    <table>
+        <tr><th>Fundamento</th><th>Aplicación al caso</th></tr>
+        <tr>
+            <td><strong>Código Civil de Guanajuato<br>Arts. 1924–1933</strong></td>
+            <td>Responsabilidad civil por hechos ilícitos. Obligación de reparar el daño causado por actos u omisiones negligentes. Art. 1930: responsabilidad objetiva por actividades peligrosas (un láser Clase IV en zona de audiencia es actividad peligrosa).</td>
+        </tr>
+        <tr>
+            <td><strong>Norma IEC 60825-1<br>(Seguridad de productos láser)</strong></td>
+            <td>Un láser Clase IV en zona de audiencia sin zona de exclusión, señalización ni operador certificado constituye operación negligente. El Salón Extravaganza violó todos los controles obligatorios.</td>
+        </tr>
+        <tr>
+            <td><strong>Ley Federal de Protección al Consumidor<br>Arts. 1°, 7°, 92 Bis</strong></td>
+            <td>Obligación del proveedor de garantizar la seguridad en la prestación del servicio. Responsabilidad por daños causados al consumidor por deficiencias en los servicios.</td>
+        </tr>
+        <tr>
+            <td><strong>Reglamento de Protección Civil<br>Municipio de León</strong></td>
+            <td>Obligación de los establecimientos de garantizar condiciones de seguridad para sus usuarios en el uso de equipos de alta potencia. Materia de la auditoría en proceso.</td>
+        </tr>
+    </table>
+
+    <div style="margin-top:1.5rem; padding:1rem; border:2px solid var(--primary); border-radius:4px;">
+        <h2 style="border:none; margin:0 0 0.75rem;">Resumen del Expediente</h2>
+        <table>
+            <tr><th>Documento / Acción</th><th>Estado</th></tr>
+            <tr><td>Carta formal de reclamación al salón (18 feb 2026)</td><td>&#10003; Enviada — Sin respuesta</td></tr>
+            <tr><td>Queja PROFECO — Folio 001057 (9 mar 2026)</td><td>&#10003; Recibida</td></tr>
+            <tr><td>Denuncia Protección Civil (11 mar 2026)</td><td>&#10003; Recibida — Auditoría en proceso</td></tr>
+            <tr><td>Solicitud de mediación extrajudicial</td><td>&#8594; Presente expediente</td></tr>
+            <tr><td>Demanda civil ($30,699 MXN) — en caso de no acuerdo</td><td>Siguiente paso</td></tr>
+        </table>
+        <p style="margin-top:0.75rem; font-size:0.85rem; color:#555;">
+            Evidencia completa disponible en: <strong>http://caso-laser.invitados.org/</strong>
+        </p>
+    </div>
+
+    <div class="firma" style="margin-top:2rem;">
+        <p>León, Guanajuato, México — Marzo de 2026</p>
+        <div class="linea-firma"></div>
+        <p><strong>Arturo Cruz</strong></p>
+        <p>Producciones Foro 7</p>
+        <p>WhatsApp: 477-920-3776 &nbsp;|&nbsp; foro7.arturoCruz@gmail.com</p>
+        <p style="margin-top:0.5rem; font-size:0.82rem; color:#666;">Caso No. FORO7-2026-001 &nbsp;|&nbsp; caso-laser.invitados.org</p>
+    </div>
+</div>
+
+
+<script>
+// Abrir automáticamente el diálogo de impresión al cargar (opcional)
+// window.onload = function(){ window.print(); }
+</script>
+</body>
+</html>
